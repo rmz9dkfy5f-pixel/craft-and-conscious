@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Craft Candle Company | Niche Candles for Modern Rituals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Craft Candle Company creates small-batch, niche candles for modern rituals. Clean-burning, design-forward scents for home, gifting, and daily self-care." />
+  <!-- Analytics placeholder -->
+  <!-- [Analytics Script Here] -->
+
+  <style>
+    /* ===============================
+       CSS VARIABLES & BASE RESET
+       =============================== */
+    :root {
+      --bg: #f6f1ea;
+      --bg-soft: #f9f5ef;
+      --bg-elevated: #ffffff;
+      --text-main: #252121;
+      --text-soft: #5a5149;
+      --muted: #a49687;
+      --border-subtle: rgba(0, 0, 0, 0.06);
+      --accent: #b46a3c;
+      --accent-soft: rgba(180, 106, 60, 0.12);
+      --accent-dark: #8c4e29;
+      --danger: #c0392b;
+      --shadow-soft: 0 18px 45px rgba(15, 7, 2, 0.09);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+
+      --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Poppins", sans-serif;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+      --transition-fast: 160ms ease-out;
+      --transition-med: 220ms ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top left, #fdf7ef 0, #f6f1ea 42%, #f2ebe4 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      width: min(1120px, 100% - 2 * var(--space-4));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--space-16) 0;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 2.2vw, 2.3rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      max-width: 520px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 12px 30px rgba(15, 7, 2, 0.06);
+      font-size: 0.75rem;
+      color: var(--muted);
+      backdrop-filter: blur(12px);
+    }
+
+    .tag {
+      border-radius: var(--radius-pill);
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--text-soft);
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      line-height: 1;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(130deg, var(--accent) 0%, #d48c5c 60%, var(--accent-dark) 100%);
+      color: #fff;
+      box-shadow: 0 14px 35px rgba(116, 63, 28, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(116, 63, 28, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-soft);
+      padding-inline: 0;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-main);
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(0, 0, 0, 0.04);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-icon:hover {
+      background: rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(246, 241, 234, 0.96), rgba(246, 241, 234, 0.88), rgba(246, 241, 234, 0));
+      border-bottom: 1px solid transparent;
+      transition: background var(--transition-med), border-color var(--transition-med), box-shadow var(--transition-med), transform var(--transition-med), padding var(--transition-med);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: 14px 0;
+    }
+
+    .site-header--scrolled {
+      background: rgba(246, 241, 234, 0.98);
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: conic-gradient(from 200deg, #fdf5ec, #f1d3b2, #e2b692, #c18b5e, #fdf5ec);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 60%);
+      opacity: 0.8;
+    }
+
+    .logo-text-main {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .logo-text-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--text-soft);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .cart-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      transition: box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .cart-toggle:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .cart-icon {
+      font-size: 1.1rem;
+    }
+
+    .cart-label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .cart-count {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .cart-subtotal {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .hero {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      gap: var(--space-3);
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 4vw, 3.3rem);
+      letter-spacing: -0.05em;
+      margin: 0 0 var(--space-4);
+    }
+
+    .hero-heading span {
+      background: linear-gradient(120deg, var(--accent) 0, var(--accent-dark) 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-soft);
+      max-width: 460px;
+      margin-bottom: var(--space-6);
+      font-size: 0.98rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-note-pill {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: radial-gradient(circle at 30% 20%, #fff, #f0d0ac);
+    }
+
+    .hero-media {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-card {
+      background: linear-gradient(160deg, #fdf7ef 0, #f2e2cf 45%, #f7ece0 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.8), transparent 55%),
+        radial-gradient(circle at 90% 20%, rgba(231, 185, 136, 0.4), transparent 60%),
+        radial-gradient(circle at 10% 100%, rgba(187, 140, 101, 0.45), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .hero-candle-img {
+      height: 210px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(140deg, #fdf7ef, #f1dfc7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 14px 38px rgba(93, 64, 43, 0.22);
+    }
+
+    .hero-candle-img::after {
+      content: "Product image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(90, 81, 73, 0.55);
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.1));
+      mix-blend-mode: soft-light;
+    }
+
+    .hero-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .hero-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-4);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #4caf50;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(20%, 30%);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 16px;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+
+    .collection-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+      cursor: pointer;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.09);
+      border-color: rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .collection-image {
+      height: 160px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #fdf7ef, #e6cfbb);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .collection-image::after {
+      content: "Collection image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(80, 70, 60, 0.55);
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.1));
+      mix-blend-mode: soft-light;
+    }
+
+    .collection-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .collection-description {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .collection-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .shop-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-5);
+    }
+
+    .shop-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .field-group select {
+      min-width: 140px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+    }
+
+    .shop-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(244, 220, 198, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-card--highlight {
+      outline: 2px solid var(--accent-soft);
+      box-shadow: 0 20px 50px rgba(180, 106, 60, 0.18);
+    }
+
+    .product-image {
+      height: 160px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(150deg, #fdf7ef, #ebd5c1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image::after {
+      content: "Candle image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(80, 70, 60, 0.55);
+      background: linear-gradient(130deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.08));
+      mix-blend-mode: soft-light;
+    }
+
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .product-notes {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .product-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .product-price {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .product-actions .btn-primary {
+      flex: 1;
+    }
+
+    .product-actions .btn-ghost {
+      font-size: 0.86rem;
+    }
+
+    .signature {
+      background: radial-gradient(circle at top left, #fdf7ef 0, #f3e1cd 40%, #f7ece0 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signature::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.8), transparent 48%),
+        radial-gradient(circle at 85% 0, rgba(222, 171, 124, 0.55), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .signature-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .signature-image {
+      height: 260px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(150deg, #fdf6ee, #e7cfb9);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 48px rgba(93, 64, 43, 0.32);
+    }
+
+    .signature-image::after {
+      content: "Hero candle image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(80, 70, 60, 0.6);
+      background: linear-gradient(130deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.15));
+      mix-blend-mode: soft-light;
+    }
+
+    .signature-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .signature-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .signature-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 460px;
+    }
+
+    .scent-pyramid {
+      display: grid;
+      gap: 6px;
+      font-size: 0.85rem;
+      margin: var(--space-4) 0;
+    }
+
+    .scent-pyramid-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .scent-label {
+      width: 80px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .signature-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .signature-meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .signature-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .story-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .story-body {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+    }
+
+    .story-list {
+      display: grid;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      margin-top: var(--space-2);
+    }
+
+    .story-list-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .story-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .story-stats-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .story-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-3);
+    }
+
+    .story-stat-number {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+    }
+
+    .story-stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .story-location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.03);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .rituals-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-10);
+      align-items: flex-start;
+    }
+
+    .rituals-copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .ritual-steps {
+      display: grid;
+      gap: 8px;
+      font-size: 0.88rem;
+      margin-top: var(--space-3);
+    }
+
+    .ritual-step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .ritual-step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .scent-finder {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .scent-finder-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .scent-mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .scent-mood-btn {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(248, 244, 239, 0.9);
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .mood-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .mood-label {
+      font-size: 0.86rem;
+    }
+
+    .scent-mood-btn[data-mood="cozy"] .mood-dot {
+      background: #c58b5d;
+    }
+
+    .scent-mood-btn[data-mood="fresh"] .mood-dot {
+      background: #5ab59b;
+    }
+
+    .scent-mood-btn[data-mood="smoky"] .mood-dot {
+      background: #4f4b46;
+    }
+
+    .scent-mood-btn[data-mood="floral"] .mood-dot {
+      background: #d67e9b;
+    }
+
+    .scent-mood-btn[data-mood="woody"] .mood-dot {
+      background: #8b5b3a;
+    }
+
+    .scent-mood-btn-active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(180, 106, 60, 0.2);
+      color: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .scent-finder-hint {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .scent-finder-recos {
+      border-top: 1px dashed rgba(0, 0, 0, 0.08);
+      padding-top: var(--space-3);
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .scent-finder-recos-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .reviews-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: var(--space-10);
+      align-items: flex-start;
+    }
+
+    .reviews-highlight {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .stars {
+      color: #f2b749;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+    }
+
+    .review-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .reviews-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      display: grid;
+      gap: 8px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f0d1ac, #dec1a0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(51, 38, 30, 0.9);
+    }
+
+    .review-name {
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .review-metadata {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .journal-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .journal-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .journal-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .journal-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .newsletter-card {
+      background: linear-gradient(135deg, #16110d, #2a211a);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10);
+      color: #f6efe7;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(223, 190, 152, 0.5), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(163, 111, 70, 0.55), transparent 55%);
+      opacity: 0.5;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .newsletter-main {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .newsletter-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(248, 239, 227, 0.75);
+    }
+
+    .newsletter-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+    }
+
+    .newsletter-text {
+      font-size: 0.95rem;
+      color: rgba(248, 239, 227, 0.85);
+      max-width: 440px;
+    }
+
+    .newsletter-form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .newsletter-input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .newsletter-input {
+      flex: 1 1 220px;
+      min-width: 0;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.35);
+      color: #f6efe7;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-input::placeholder {
+      color: rgba(246, 239, 231, 0.55);
+    }
+
+    .newsletter-hint {
+      font-size: 0.8rem;
+      color: rgba(248, 239, 227, 0.7);
+    }
+
+    .newsletter-status {
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .newsletter-status--success {
+      color: #9ae6b4;
+    }
+
+    .newsletter-status--error {
+      color: #feb2b2;
+    }
+
+    .newsletter-meta {
+      position: relative;
+      font-size: 0.82rem;
+      color: rgba(248, 239, 227, 0.75);
+      display: grid;
+      gap: 8px;
+    }
+
+    .newsletter-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .newsletter-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-10);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 10px;
+    }
+
+    .contact-label {
+      width: 80px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .checkout-placeholder {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px dashed rgba(0, 0, 0, 0.12);
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      display: grid;
+      gap: 8px;
+    }
+
+    .site-footer {
+      padding: var(--space-10) 0 var(--space-6);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(246, 241, 234, 0.92);
+      backdrop-filter: blur(14px);
+      margin-top: var(--space-12);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-8);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .footer-brand-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 420px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: var(--space-8);
+      font-size: 0.85rem;
+    }
+
+    .footer-nav-group-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .footer-nav-link {
+      display: block;
+      padding-block: 4px;
+      color: var(--text-soft);
+    }
+
+    .footer-nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.8);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .social-link:hover {
+      background: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-med), visibility var(--transition-med);
+      z-index: 48;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      inset-block: 0;
+      right: 0;
+      width: min(380px, 100%);
+      background: #fff;
+      box-shadow: -22px 0 50px rgba(0, 0, 0, 0.2);
+      transform: translateX(100%);
+      transition: transform var(--transition-med);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-open .cart-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-drawer-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .cart-drawer-body {
+      padding: var(--space-4) var(--space-5);
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      gap: var(--space-4);
+      background: #f8f4ee;
+    }
+
+    .cart-empty {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .cart-item-list {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .cart-item {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      border: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-3);
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .cart-item-image {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #fdf7ef, #ead6c3);
+    }
+
+    .cart-item-main {
+      display: grid;
+      gap: 4px;
+    }
+
+    .cart-item-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .cart-item-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .cart-item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 2px 8px;
+      font-size: 0.78rem;
+    }
+
+    .qty-btn {
+      border: none;
+      background: transparent;
+      padding: 2px 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      font-size: 0.78rem;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .remove-btn:hover {
+      color: var(--danger);
+    }
+
+    .cart-drawer-footer {
+      padding: var(--space-4) var(--space-5);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: grid;
+      gap: var(--space-3);
+      background: #fff;
+    }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .cart-summary-total-amount {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 400ms ease-out, transform 400ms ease-out;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .story,
+      .rituals-layout,
+      .reviews-layout,
+      .newsletter-card,
+      .contact-grid,
+      .footer-top {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .collections-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .journal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        padding-block: 10px;
+      }
+
+      .nav-links {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        background: rgba(246, 241, 234, 0.98);
+        flex-direction: column;
+        padding: var(--space-4) var(--space-4) var(--space-5);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity var(--transition-med), transform var(--transition-med), visibility var(--transition-med);
+      }
+
+      .nav-open .nav-links {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links-desktop-only {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: var(--space-2);
+      }
+
+      .hero {
+        padding-top: var(--space-12);
+      }
+
+      .hero-card-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .collections-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .newsletter-card {
+        padding: var(--space-6);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .journal-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-heading {
+        font-size: 2.3rem;
+      }
+
+      .signature {
+        padding: var(--space-6);
+      }
+
+      .newsletter-input-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .site-footer {
+        padding-inline: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container site-header-inner">
+      <a href="#top" class="logo" aria-label="Craft Candle Company home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <div>
+          <div class="logo-text-main">CRAFT</div>
+          <div class="logo-text-sub">Candle Co.</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="#shop">Shop</a></li>
+          <li><a class="nav-link" href="#collections">Collections</a></li>
+          <li><a class="nav-link" href="#story">About</a></li>
+          <li><a class="nav-link" href="#rituals">Rituals</a></li>
+          <li><a class="nav-link" href="#journal">Journal</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn btn-secondary btn-small nav-links-desktop-only" data-scroll-to="#shop">
+            Shop candles
+          </button>
+          <button class="cart-toggle" type="button" aria-label="Open cart" data-cart-toggle>
+            <span class="cart-icon" aria-hidden="true">🛒</span>
+            <span class="cart-label">
+              <span class="cart-count" data-cart-count>0 items</span>
+              <span class="cart-subtotal" data-cart-subtotal>$0.00</span>
+            </span>
+          </button>
+          <button class="btn-icon nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <div class="hero-pill-row">
+            <div class="pill">
+              <span>✨</span>
+              <span>Small-batch, niche candle studio</span>
+            </div>
+            <span class="tag">Phthalate-free oils</span>
+          </div>
+          <h1 class="hero-heading">
+            Niche candles for<br />
+            <span>modern daily rituals.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Craft Candle Company creates design-forward scents that feel like your space: textured, intimate, and quietly luxurious. Poured by hand in small runs with a clean-burning wax blend.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary" type="button" data-scroll-to="#shop">
+              Shop candles
+            </button>
+            <button class="btn btn-secondary" type="button" data-scroll-to="#story">
+              Discover the story
+            </button>
+          </div>
+          <div class="hero-note">
+            <span class="hero-note-pill"></span>
+            <span>New: <strong>City Stories</strong> capsule collection now shipping.</span>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="hero-card" aria-hidden="true">
+            <div class="hero-card-inner">
+              <div class="hero-candle-img"></div>
+              <div class="hero-card-meta">
+                <div class="hero-chip-row">
+                  <span class="tag">Signature</span>
+                  <span class="tag">Best seller</span>
+                </div>
+                <div>
+                  <div class="product-name">Smoked Vanilla Resin</div>
+                  <div class="product-notes">Vanilla bean · Labdanum · Charred cedar</div>
+                </div>
+                <div class="product-meta-row">
+                  <div class="product-price">$46</div>
+                  <div>55–60 hr burn · 9oz</div>
+                </div>
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="signature-smoked-vanilla"
+                        data-product-name="Smoked Vanilla Resin"
+                        data-product-price="46">
+                  Add to cart
+                </button>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>4.9 from 320+ reviews</span>
+              </div>
+              <span>Made in small batches · Ships in 2–3 days</span>
+            </div>
+            <div class="hero-floating-card">
+              <div style="font-size: 0.8rem;">Scent profile</div>
+              <div style="font-size: 0.78rem; color: var(--text-soft);">
+                Cozy, smoky vanilla with resinous depth. Built for late-night reading and rainy afternoons.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Collections</div>
+          <h2 class="section-title">Evening rituals, city stories, calm mornings.</h2>
+          <p class="section-subtitle">
+            Each collection is a small chapter in scent form—built around a mood, a room, or a moment worth repeating.
+          </p>
+        </div>
+
+        <div class="collections-grid">
+          <article class="collection-card reveal" data-scroll-to="#shop">
+            <div class="collection-image" aria-hidden="true"></div>
+            <div>
+              <div class="collection-name">Evening Rituals</div>
+              <p class="collection-description">
+                Smoky, resinous, and candlelit. Think late nights in, vinyl playing, and soft shadows on textured walls.
+              </p>
+            </div>
+            <div class="collection-meta">
+              <span>4 scents · Deep & cozy</span>
+              <button class="btn btn-secondary btn-small" type="button">Shop collection</button>
+            </div>
+          </article>
+
+          <article class="collection-card reveal" data-scroll-to="#shop">
+            <div class="collection-image" aria-hidden="true"></div>
+            <div>
+              <div class="collection-name">City Stories</div>
+              <p class="collection-description">
+                Polished concrete, worn leather chairs, espresso bars, and midnight rooftops. Urban and design-forward.
+              </p>
+            </div>
+            <div class="collection-meta">
+              <span>5 scents · Modern & layered</span>
+              <button class="btn btn-secondary btn-small" type="button">Shop collection</button>
+            </div>
+          </article>
+
+          <article class="collection-card reveal" data-scroll-to="#shop">
+            <div class="collection-image" aria-hidden="true"></div>
+            <div>
+              <div class="collection-name">Calm Mornings</div>
+              <p class="collection-description">
+                Fresh, quiet, and light-filled. Built for slow coffee, Sunday sheets, and clean counter spaces.
+              </p>
+            </div>
+            <div class="collection-meta">
+              <span>3 scents · Airy & soft</span>
+              <button class="btn btn-secondary btn-small" type="button">Shop collection</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Shop</div>
+          <h2 class="section-title">Small-batch candles with a point of view.</h2>
+          <p class="section-subtitle">
+            Browse our core line of candles. Filter by collection, scent family, and price—or let the scent finder nudge you in the right direction.
+          </p>
+        </div>
+
+        <div class="shop-toolbar reveal">
+          <div class="shop-filters" aria-label="Filter products">
+            <div class="field-group">
+              <label for="filter-collection">Collection</label>
+              <select id="filter-collection" data-filter-collection>
+                <option value="all">All collections</option>
+                <option value="evening">Evening Rituals</option>
+                <option value="city">City Stories</option>
+                <option value="calm">Calm Mornings</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="filter-scent-family">Scent family</label>
+              <select id="filter-scent-family" data-filter-scent>
+                <option value="all">All scent families</option>
+                <option value="cozy">Cozy / gourmand</option>
+                <option value="fresh">Fresh / aromatic</option>
+                <option value="smoky">Smoky / resinous</option>
+                <option value="floral">Floral</option>
+                <option value="woody">Woody</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="filter-price">Price</label>
+              <select id="filter-price" data-filter-price>
+                <option value="all">All prices</option>
+                <option value="under40">Under $40</option>
+                <option value="40-55">$40–$55</option>
+                <option value="over55">Over $55</option>
+              </select>
+            </div>
+          </div>
+          <div class="shop-meta">
+            <label for="sort-products">Sort by:</label>
+            <select id="sort-products" data-sort-products>
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to high</option>
+              <option value="price-desc">Price: High to low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" data-product-grid>
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="urban-loft"
+                   data-collection="city"
+                   data-scent-family="woody"
+                   data-mood="woody,city"
+                   data-price="48">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Urban Loft</div>
+            <div class="product-notes">Worn leather · Concrete · Sueded cedar</div>
+            <div class="product-meta-row">
+              <div class="product-price">$48</div>
+              <div>City Stories</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="urban-loft"
+                      data-product-name="Urban Loft"
+                      data-product-price="48">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="quiet-library"
+                   data-collection="evening"
+                   data-scent-family="smoky"
+                   data-mood="cozy,smoky"
+                   data-price="46">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Quiet Library</div>
+            <div class="product-notes">Cashmere woods · Old paper · Smoked tonka</div>
+            <div class="product-meta-row">
+              <div class="product-price">$46</div>
+              <div>Evening Rituals</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="quiet-library"
+                      data-product-name="Quiet Library"
+                      data-product-price="46">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="calm-morning"
+                   data-collection="calm"
+                   data-scent-family="fresh"
+                   data-mood="fresh"
+                   data-price="42">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Calm Morning</div>
+            <div class="product-notes">Linen · Bergamot · Soft amber</div>
+            <div class="product-meta-row">
+              <div class="product-price">$42</div>
+              <div>Calm Mornings</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="calm-morning"
+                      data-product-name="Calm Morning"
+                      data-product-price="42">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="espresso-corridor"
+                   data-collection="city"
+                   data-scent-family="cozy"
+                   data-mood="cozy"
+                   data-price="44">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Espresso Corridor</div>
+            <div class="product-notes">Dark roast · Brown sugar · Smoked oak</div>
+            <div class="product-meta-row">
+              <div class="product-price">$44</div>
+              <div>City Stories</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="espresso-corridor"
+                      data-product-name="Espresso Corridor"
+                      data-product-price="44">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="linen-window"
+                   data-collection="calm"
+                   data-scent-family="fresh"
+                   data-mood="fresh"
+                   data-price="38">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Linen Window</div>
+            <div class="product-notes">White tea · Rainwater · Soft musk</div>
+            <div class="product-meta-row">
+              <div class="product-price">$38</div>
+              <div>Calm Mornings</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="linen-window"
+                      data-product-name="Linen Window"
+                      data-product-price="38">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="rooftop-resin"
+                   data-collection="evening"
+                   data-scent-family="smoky"
+                   data-mood="smoky,woody"
+                   data-price="52">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Rooftop Resin</div>
+            <div class="product-notes">Olibanum · Black pepper · Night air</div>
+            <div class="product-meta-row">
+              <div class="product-price">$52</div>
+              <div>Evening Rituals</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="rooftop-resin"
+                      data-product-name="Rooftop Resin"
+                      data-product-price="52">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="stone-garden"
+                   data-collection="calm"
+                   data-scent-family="floral"
+                   data-mood="floral,fresh"
+                   data-price="45">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Stone Garden</div>
+            <div class="product-notes">Iris · Moss · Sandalwood</div>
+            <div class="product-meta-row">
+              <div class="product-price">$45</div>
+              <div>Calm Mornings</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="stone-garden"
+                      data-product-name="Stone Garden"
+                      data-product-price="45">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card reveal"
+                   data-product-card
+                   data-id="gallery-lights"
+                   data-collection="city"
+                   data-scent-family="floral"
+                   data-mood="floral,city"
+                   data-price="58">
+            <div class="product-image" aria-hidden="true"></div>
+            <div class="product-name">Gallery Lights</div>
+            <div class="product-notes">White florals · Musk · Warm projector</div>
+            <div class="product-meta-row">
+              <div class="product-price">$58</div>
+              <div>City Stories</div>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                      data-product-id="gallery-lights"
+                      data-product-name="Gallery Lights"
+                      data-product-price="58">
+                Add to cart
+              </button>
+              <button class="btn btn-ghost btn-small" type="button">
+                View details
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signature">
+      <div class="container reveal">
+        <div class="signature">
+          <div class="signature-inner">
+            <div class="signature-image" aria-hidden="true"></div>
+            <div class="signature-content">
+              <div class="eyebrow">Signature scent</div>
+              <h2 class="signature-title">Smoked Vanilla Resin</h2>
+              <p class="signature-subtitle">
+                A grounded vanilla that leans more art book store than pastry case. Built around creamy vanilla bean, labdanum resin, and charred cedar for depth and shadow.
+              </p>
+
+              <div class="scent-pyramid" aria-label="Scent pyramid">
+                <div class="scent-pyramid-row">
+                  <div class="scent-label">Top</div>
+                  <div>Vanilla orchid, bergamot peel</div>
+                </div>
+                <div class="scent-pyramid-row">
+                  <div class="scent-label">Heart</div>
+                  <div>Labdanum resin, smoked tonka</div>
+                </div>
+                <div class="scent-pyramid-row">
+                  <div class="scent-label">Base</div>
+                  <div>Charred cedar, cashmere woods</div>
+                </div>
+              </div>
+
+              <div class="signature-meta-row">
+                <div class="signature-meta-list">
+                  <span>· Hand-poured in small batches</span>
+                  <span>· Clean-burning coconut-soy blend</span>
+                  <span>· Phthalate- & paraben-free fragrance oils</span>
+                </div>
+                <div class="signature-price">$46</div>
+              </div>
+
+              <div class="signature-meta-row" style="margin-top: 10px;">
+                <div class="signature-meta-list">
+                  <span>9oz · 55–60 hr burn</span>
+                </div>
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="signature-smoked-vanilla"
+                        data-product-name="Smoked Vanilla Resin"
+                        data-product-price="46">
+                  Add signature to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Our craft</div>
+          <h2 class="section-title">Designed for interiors, built for rituals.</h2>
+          <p class="section-subtitle">
+            Craft Candle Company started with one simple idea: scent should feel like part of your space, not an afterthought. Each candle is treated like a design object—inside and out.
+          </p>
+        </div>
+        <div class="story">
+          <div class="story-content reveal">
+            <p class="story-body">
+              We work in small seasonal runs, blending fragrance in-house and pouring by hand in our studio. Every pour is tested for hot throw, burn quality, and how it behaves in an actual room—not just a lab.
+            </p>
+            <div class="story-list" aria-label="Craft details">
+              <div class="story-list-item">
+                <span class="story-bullet"></span>
+                <span>Clean-burning coconut-soy wax blend with cotton wicks.</span>
+              </div>
+              <div class="story-list-item">
+                <span class="story-bullet"></span>
+                <span>Phthalate-free, paraben-free fragrance oils sourced from trusted houses.</span>
+              </div>
+              <div class="story-list-item">
+                <span class="story-bullet"></span>
+                <span>Reusable glass vessels designed to live on as objects in your home.</span>
+              </div>
+              <div class="story-list-item">
+                <span class="story-bullet"></span>
+                <span>Limited releases each season to keep the line intentional and focused.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="story-stats-card reveal" aria-label="Studio details">
+            <div class="story-location-pill">
+              <span aria-hidden="true">📍</span>
+              <span>Poured in [Your City Here]</span>
+            </div>
+            <div class="story-stat-row">
+              <div>
+                <div class="story-stat-number">320+</div>
+                <div class="story-stat-label">Customer reviews</div>
+              </div>
+              <div>
+                <div class="story-stat-number">4.9</div>
+                <div class="story-stat-label">Average rating</div>
+              </div>
+            </div>
+            <div class="story-stat-row">
+              <div>
+                <div class="story-stat-number">12</div>
+                <div class="story-stat-label">Core scents</div>
+              </div>
+              <div>
+                <div class="story-stat-number">4</div>
+                <div class="story-stat-label">Seasonal drops per year</div>
+              </div>
+            </div>
+            <p style="font-size: 0.86rem; color: var(--text-soft); margin: 0;">
+              Each batch is blend-tested, wick-tested, and burned from start to finish before we sign off on it. The goal: a quiet, steady flame and a scent that never shouts.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rituals">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Rituals</div>
+          <h2 class="section-title">Pick a mood. We’ll suggest a scent.</h2>
+          <p class="section-subtitle">
+            Not sure where to start? Use the micro scent finder to match today’s mood to a handful of candles we think you’ll live with on repeat.
+          </p>
+        </div>
+
+        <div class="rituals-layout">
+          <div class="rituals-copy reveal">
+            <p>
+              Candles are tiny rituals disguised as objects. Light one when you reset a room, finish an email, open a book, or put your phone away for the night.
+            </p>
+            <div class="ritual-steps" aria-label="How to use Craft in your rituals">
+              <div class="ritual-step">
+                <span class="ritual-step-number">1</span>
+                <div>Choose a mood below. Cozy, fresh, smoky—go with your gut.</div>
+              </div>
+              <div class="ritual-step">
+                <span class="ritual-step-number">2</span>
+                <div>We’ll highlight a few candles that fit. Add one (or two) to your cart.</div>
+              </div>
+              <div class="ritual-step">
+                <span class="ritual-step-number">3</span>
+                <div>Build a small ritual around lighting it: music, lighting, or just a deep breath.</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="scent-finder reveal" aria-label="Scent finder">
+            <div>
+              <div class="scent-finder-title">What are you in the mood for?</div>
+              <p class="scent-finder-hint">
+                Tap a mood to highlight a few scents. We’ll nudge you to the ones that match the vibe.
+              </p>
+            </div>
+            <div class="scent-mood-buttons" role="list">
+              <button class="scent-mood-btn" type="button" data-mood-btn data-mood="cozy">
+                <span class="mood-dot" aria-hidden="true"></span>
+                <span class="mood-label">Cozy</span>
+              </button>
+              <button class="scent-mood-btn" type="button" data-mood-btn data-mood="fresh">
+                <span class="mood-dot" aria-hidden="true"></span>
+                <span class="mood-label">Fresh</span>
+              </button>
+              <button class="scent-mood-btn" type="button" data-mood-btn data-mood="smoky">
+                <span class="mood-dot" aria-hidden="true"></span>
+                <span class="mood-label">Smoky</span>
+              </button>
+              <button class="scent-mood-btn" type="button" data-mood-btn data-mood="floral">
+                <span class="mood-dot" aria-hidden="true"></span>
+                <span class="mood-label">Floral</span>
+              </button>
+              <button class="scent-mood-btn" type="button" data-mood-btn data-mood="woody">
+                <span class="mood-dot" aria-hidden="true"></span>
+                <span class="mood-label">Woody</span>
+              </button>
+            </div>
+            <div class="scent-finder-recos" data-scent-recos>
+              <strong>Hint:</strong> Choose a mood to see 2–3 recommendations here.
+              <div class="scent-finder-recos-list" aria-live="polite" aria-atomic="true"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Social proof</div>
+          <h2 class="section-title">Loved by people who obsess over the details.</h2>
+          <p class="section-subtitle">
+            From interior designers to candle-first people, Craft lives in studios, brownstones, and quiet hallway corners across the map.
+          </p>
+        </div>
+
+        <div class="reviews-layout">
+          <div class="reviews-highlight reveal">
+            <div class="stars" aria-label="4.9 out of 5 stars">
+              ★★★★★
+            </div>
+            <p>
+              “These feel like candles you’d find in a design gallery, not a supermarket aisle. Quiet Library is permanently on our studio desk.”
+            </p>
+            <div class="review-pill-row">
+              <span>4.9 average rating · 320+ reviews</span>
+              <span>Verified by third-party review partner</span>
+            </div>
+          </div>
+
+          <div class="reviews-grid reveal">
+            <article class="review-card">
+              <div class="review-header">
+                <div class="review-user">
+                  <div class="review-avatar" aria-hidden="true">AL</div>
+                  <div>
+                    <div class="review-name">Alex, interior stylist</div>
+                    <div class="review-metadata">On Smoked Vanilla Resin</div>
+                  </div>
+                </div>
+                <div class="stars" aria-label="5 out of 5 stars">
+                  ★★★★★
+                </div>
+              </div>
+              <p>
+                “Rich and layered without smelling like dessert. Clients always ask what’s burning during evening installs.”
+              </p>
+            </article>
+
+            <article class="review-card">
+              <div class="review-header">
+                <div class="review-user">
+                  <div class="review-avatar" aria-hidden="true">JR</div>
+                  <div>
+                    <div class="review-name">Jordan</div>
+                    <div class="review-metadata">On Urban Loft</div>
+                  </div>
+                </div>
+                <div class="stars" aria-label="5 out of 5 stars">
+                  ★★★★★
+                </div>
+              </div>
+              <p>
+                “Makes my apartment smell like the lobby of a boutique hotel. In the best way possible.”
+              </p>
+            </article>
+
+            <article class="review-card">
+              <div class="review-header">
+                <div class="review-user">
+                  <div class="review-avatar" aria-hidden="true">MS</div>
+                  <div>
+                    <div class="review-name">Mia</div>
+                    <div class="review-metadata">On Calm Morning</div>
+                  </div>
+                </div>
+                <div class="stars" aria-label="4 out of 5 stars">
+                  ★★★★☆
+                </div>
+              </div>
+              <p>
+                “Soft, clean, and not too floral. I burn this while I journal and it has become part of the ritual.”
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Journal</div>
+          <h2 class="section-title">Stories, care, and behind-the-scent notes.</h2>
+          <p class="section-subtitle">
+            Go deeper into the ideas behind our scents, how to care for your candles, and ways to build rituals around everyday objects.
+          </p>
+        </div>
+
+        <div class="journal-grid">
+          <article class="journal-card reveal">
+            <div class="journal-tag">Ritual</div>
+            <div class="journal-title">How to build an evening ritual that actually sticks.</div>
+            <p>
+              A small set of cues, lighting changes, and scents can tell your brain it’s time to wind down.
+            </p>
+            <div class="journal-footer">
+              <span>6 min read</span>
+              <button class="btn btn-ghost btn-small" type="button">Read story</button>
+            </div>
+          </article>
+
+          <article class="journal-card reveal">
+            <div class="journal-tag">Care</div>
+            <div class="journal-title">Candle care 101: clean burns, every time.</div>
+            <p>
+              From first burns to wick trimming, here are five tiny habits that make your candles last longer.
+            </p>
+            <div class="journal-footer">
+              <span>4 min read</span>
+              <button class="btn btn-ghost btn-small" type="button">Read story</button>
+            </div>
+          </article>
+
+          <article class="journal-card reveal">
+            <div class="journal-tag">Behind the scent</div>
+            <div class="journal-title">Designing “Quiet Library” from a favorite reading chair.</div>
+            <p>
+              Notes from our perfumer on building a scent that feels like well-worn pages and soft lamplight.
+            </p>
+            <div class="journal-footer">
+              <span>5 min read</span>
+              <button class="btn btn-ghost btn-small" type="button">Read story</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="newsletter">
+      <div class="container reveal">
+        <div class="newsletter-card">
+          <div class="newsletter-main">
+            <div class="newsletter-eyebrow">Limited drops · Early access</div>
+            <h2 class="newsletter-title">Be first to know about seasonal runs.</h2>
+            <p class="newsletter-text">
+              We pour in small batches and often sell out. Join the list for early access to limited releases, studio seconds, and quiet one-off experiments.
+            </p>
+            <form class="newsletter-form" data-newsletter-form novalidate>
+              <div class="newsletter-input-row">
+                <input type="email"
+                       class="newsletter-input"
+                       name="email"
+                       aria-label="Email address"
+                       placeholder="Enter your email"
+                       required
+                       data-newsletter-input />
+                <button class="btn btn-primary" type="submit">
+                  Join the list
+                </button>
+              </div>
+              <div class="newsletter-hint">
+                No spam, ever. A few thoughtful emails per month, max.
+              </div>
+              <div class="newsletter-status" aria-live="polite" data-newsletter-status></div>
+            </form>
+          </div>
+          <div class="newsletter-meta">
+            <div class="newsletter-meta-row">
+              <div class="newsletter-badge">✓</div>
+              <span>Subscriber-only access to studio archive sales and samples.</span>
+            </div>
+            <div class="newsletter-meta-row">
+              <div class="newsletter-badge">◎</div>
+              <span>Occasional behind-the-scenes from our scent development table.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Contact & checkout</div>
+          <h2 class="section-title">Questions, stockists, or custom projects?</h2>
+          <p class="section-subtitle">
+            Whether you’re shopping for yourself, a project, or a space, we’re here to help you find (or create) the right scent.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-list reveal">
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div><a href="mailto:hello@craftcandle.co">hello@craftcandle.co</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Stockists</div>
+              <div>Interested in carrying Craft? Get in touch for a current line sheet.</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Custom</div>
+              <div>We occasionally take on custom scent and private label projects for studios and hospitality.</div>
+            </div>
+          </div>
+          <div class="checkout-placeholder reveal" id="checkout" aria-label="Checkout preview">
+            <strong>Checkout (preview).</strong>
+            <span>
+              In a live build, this section would power a secure checkout experience. For now, add items to your cart and imagine this is where billing, shipping, and order review would live.
+            </span>
+            <span style="font-size: 0.8rem; color: var(--muted);">
+              · PCI-compliant payments<br />
+              · Order tracking links<br />
+              · Gift messaging and scheduling
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-overlay" data-cart-overlay></div>
+  <aside class="cart-drawer" aria-label="Shopping cart" data-cart-drawer aria-hidden="true">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">Your cart</div>
+      <button class="btn-icon" type="button" aria-label="Close cart" data-cart-close>
+        ✕
+      </button>
+    </div>
+    <div class="cart-drawer-body">
+      <div class="cart-empty" data-cart-empty>
+        Your cart is empty. Add a candle (or two) to start your ritual.
+      </div>
+      <div class="cart-item-list" data-cart-items hidden></div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span class="cart-summary-total-amount" data-cart-summary-total>$0.00</span>
+      </div>
+      <div class="cart-summary-row" style="font-size: 0.8rem;">
+        <span>Shipping</span>
+        <span>Calculated at checkout</span>
+      </div>
+      <button class="btn btn-primary" type="button" data-scroll-to="#checkout">
+        Continue to checkout
+      </button>
+      <button class="btn btn-secondary" type="button" data-cart-close>
+        Keep browsing
+      </button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="logo">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <div>
+              <div class="logo-text-main">CRAFT</div>
+              <div class="logo-text-sub">Candle Co.</div>
+            </div>
+          </div>
+          <p class="footer-brand-text">
+            Small-batch candles for people who care about light, texture, and scent as much as they care about the furniture around them.
+          </p>
+        </div>
+        <div class="footer-nav">
+          <div>
+            <div class="footer-nav-group-title">Shop</div>
+            <a class="footer-nav-link" href="#shop">All candles</a>
+            <a class="footer-nav-link" href="#collections">Collections</a>
+            <a class="footer-nav-link" href="#signature">Signature scent</a>
+          </div>
+          <div>
+            <div class="footer-nav-group-title">Company</div>
+            <a class="footer-nav-link" href="#story">About</a>
+            <a class="footer-nav-link" href="#journal">Journal</a>
+            <a class="footer-nav-link" href="#contact">Contact</a>
+          </div>
+          <div>
+            <div class="footer-nav-group-title">Support</div>
+            <a class="footer-nav-link" href="#faq">FAQ</a>
+            <a class="footer-nav-link" href="#shipping">Shipping & returns</a>
+            <a class="footer-nav-link" href="#terms">Terms & privacy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Craft Candle Company. All rights reserved.</div>
+        <div class="social-links" aria-label="Social links">
+          <a class="social-link" href="#" aria-label="Instagram">
+            IG
+          </a>
+          <a class="social-link" href="#" aria-label="Pinterest">
+            P
+          </a>
+          <a class="social-link" href="#" aria-label="TikTok">
+            TT
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const select = (q, root = document) => root.querySelector(q);
+    const selectAll = (q, root = document) => Array.from(root.querySelectorAll(q));
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      const header = select(".site-header");
+      const onScroll = () => {
+        if (!header) return;
+        if (window.scrollY > 16) {
+          header.classList.add("site-header--scrolled");
+        } else {
+          header.classList.remove("site-header--scrolled");
+        }
+      };
+      window.addEventListener("scroll", onScroll);
+      onScroll();
+
+      const smoothScrollTo = (targetSelector) => {
+        const target = select(targetSelector);
+        if (!target) return;
+        const headerOffset = header ? header.offsetHeight + 12 : 0;
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = rect.top + scrollTop - headerOffset;
+
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth"
+        });
+      };
+
+      selectAll("[data-scroll-to]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-scroll-to");
+          if (target) smoothScrollTo(target);
+        });
+      });
+
+      selectAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            e.preventDefault();
+            smoothScrollTo(href);
+            document.body.classList.remove("nav-open");
+            const navToggle = select("[data-nav-toggle]");
+            if (navToggle) {
+              navToggle.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+      });
+
+      const navToggle = select("[data-nav-toggle]");
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = document.body.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+
+      const revealEls = selectAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("reveal-visible"));
+      }
+
+      const productGrid = select("[data-product-grid]");
+      const productCards = productGrid ? selectAll("[data-product-card]", productGrid) : [];
+      const filterCollection = select("[data-filter-collection]");
+      const filterScent = select("[data-filter-scent]");
+      const filterPrice = select("[data-filter-price]");
+      const sortSelect = select("[data-sort-products]");
+
+      const parsePrice = (card) => {
+        const val = card.getAttribute("data-price");
+        return val ? parseFloat(val) : 0;
+      };
+
+      const getName = (card) => {
+        const nameEl = select(".product-name", card);
+        return nameEl ? nameEl.textContent.trim() : "";
+      };
+
+      const applyFiltersAndSorting = () => {
+        if (!productGrid) return;
+        const collectionVal = filterCollection ? filterCollection.value : "all";
+        const scentVal = filterScent ? filterScent.value : "all";
+        const priceVal = filterPrice ? filterPrice.value : "all";
+        const sortVal = sortSelect ? sortSelect.value : "featured";
+
+        let visibleCards = [];
+
+        productCards.forEach((card) => {
+          const cardCollection = card.getAttribute("data-collection") || "";
+          const cardScentFamily = card.getAttribute("data-scent-family") || "";
+          const cardPrice = parsePrice(card);
+
+          let visible = true;
+
+          if (collectionVal !== "all" && cardCollection !== collectionVal) {
+            visible = false;
+          }
+          if (scentVal !== "all" && cardScentFamily !== scentVal) {
+            visible = false;
+          }
+          if (priceVal !== "all") {
+            if (priceVal === "under40" && !(cardPrice < 40)) visible = false;
+            if (priceVal === "40-55" && !(cardPrice >= 40 && cardPrice <= 55)) visible = false;
+            if (priceVal === "over55" && !(cardPrice > 55)) visible = false;
+          }
+
+          card.style.display = visible ? "" : "none";
+          if (visible) visibleCards.push(card);
+        });
+
+        if (sortVal !== "featured") {
+          visibleCards.sort((a, b) => {
+            if (sortVal === "price-asc") {
+              return parsePrice(a) - parsePrice(b);
+            }
+            if (sortVal === "price-desc") {
+              return parsePrice(b) - parsePrice(a);
+            }
+            if (sortVal === "name-asc") {
+              return getName(a).localeCompare(getName(b));
+            }
+            return 0;
+          });
+
+          visibleCards.forEach((card) => productGrid.appendChild(card));
+        }
+      };
+
+      [filterCollection, filterScent, filterPrice, sortSelect].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("change", applyFiltersAndSorting);
+      });
+
+      applyFiltersAndSorting();
+
+      const moodButtons = selectAll("[data-mood-btn]");
+      const scentRecosContainer = select("[data-scent-recos]");
+      const scentRecosList = scentRecosContainer ? select(".scent-finder-recos-list", scentRecosContainer) : null;
+
+      const moodRecommendations = {
+        cozy: ["Quiet Library", "Espresso Corridor", "Smoked Vanilla Resin"],
+        fresh: ["Calm Morning", "Linen Window"],
+        smoky: ["Rooftop Resin", "Quiet Library"],
+        floral: ["Stone Garden", "Gallery Lights"],
+        woody: ["Urban Loft", "Rooftop Resin"]
+      };
+
+      const highlightForMood = (mood) => {
+        productCards.forEach((card) => card.classList.remove("product-card--highlight"));
+
+        if (!scentRecosList || !scentRecosContainer) return;
+
+        const names = moodRecommendations[mood] || [];
+        scentRecosList.innerHTML = "";
+
+        if (!names.length) {
+          scentRecosContainer.querySelector("strong").textContent = "Hint:";
+          scentRecosList.textContent = "";
+          return;
+        }
+
+        scentRecosContainer.querySelector("strong").textContent = "We’d start here:";
+        names.forEach((name) => {
+          const li = document.createElement("div");
+          li.textContent = name;
+          scentRecosList.appendChild(li);
+        });
+
+        productCards.forEach((card) => {
+          const moods = (card.getAttribute("data-mood") || "").split(",").map((m) => m.trim());
+          const name = getName(card);
+          if (moods.includes(mood) || names.includes(name)) {
+            card.classList.add("product-card--highlight");
+          }
+        });
+
+        const firstHighlight = select(".product-card--highlight");
+        if (firstHighlight) {
+          smoothScrollTo("#shop");
+        }
+      };
+
+      moodButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const mood = btn.getAttribute("data-mood");
+          if (!mood) return;
+          const isActive = btn.classList.contains("scent-mood-btn-active");
+          moodButtons.forEach((b) => b.classList.remove("scent-mood-btn-active"));
+          productCards.forEach((card) => card.classList.remove("product-card--highlight"));
+
+          if (!isActive) {
+            btn.classList.add("scent-mood-btn-active");
+            highlightForMood(mood);
+          } else {
+            if (scentRecosList && scentRecosContainer) {
+              scentRecosContainer.querySelector("strong").textContent = "Hint:";
+              scentRecosList.innerHTML = "";
+            }
+          }
+        });
+      });
+
+      const cartToggle = select("[data-cart-toggle]");
+      const cartDrawer = select("[data-cart-drawer]");
+      const cartOverlay = select("[data-cart-overlay]");
+      const cartCloseButtons = selectAll("[data-cart-close]");
+      const cartItemsContainer = select("[data-cart-items]");
+      const cartEmpty = select("[data-cart-empty]");
+      const cartCountEl = select("[data-cart-count]");
+      const cartSubtotalEl = select("[data-cart-subtotal]");
+      const cartSummaryTotal = select("[data-cart-summary-total]");
+
+      const cart = new Map();
+
+      const formatCurrency = (value) =>
+        new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(value);
+
+      const openCart = () => {
+        document.body.classList.add("cart-open");
+        if (cartDrawer) cartDrawer.setAttribute("aria-hidden", "false");
+      };
+
+      const closeCart = () => {
+        document.body.classList.remove("cart-open");
+        if (cartDrawer) cartDrawer.setAttribute("aria-hidden", "true");
+      };
+
+      if (cartToggle) {
+        cartToggle.addEventListener("click", () => {
+          const isOpen = document.body.classList.contains("cart-open");
+          if (isOpen) {
+            closeCart();
+          } else {
+            openCart();
+          }
+        });
+      }
+
+      cartCloseButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          closeCart();
+        });
+      });
+
+      if (cartOverlay) {
+        cartOverlay.addEventListener("click", closeCart);
+      }
+
+      const updateCartUI = () => {
+        let totalItems = 0;
+        let subtotal = 0;
+
+        cart.forEach((item) => {
+          totalItems += item.quantity;
+          subtotal += item.price * item.quantity;
+        });
+
+        if (cartCountEl) {
+          cartCountEl.textContent = totalItems === 1 ? "1 item" : `${totalItems} items`;
+        }
+
+        const subtotalFormatted = formatCurrency(subtotal);
+        if (cartSubtotalEl) cartSubtotalEl.textContent = subtotalFormatted;
+        if (cartSummaryTotal) cartSummaryTotal.textContent = subtotalFormatted;
+
+        if (!cartItemsContainer || !cartEmpty) return;
+
+        if (cart.size === 0) {
+          cartItemsContainer.hidden = true;
+          cartEmpty.hidden = false;
+        } else {
+          cartItemsContainer.hidden = false;
+          cartEmpty.hidden = true;
+
+          cartItemsContainer.innerHTML = "";
+          cart.forEach((item) => {
+            const row = document.createElement("div");
+            row.className = "cart-item";
+            row.innerHTML = `
+              <div class="cart-item-image" aria-hidden="true"></div>
+              <div class="cart-item-main">
+                <div class="cart-item-top-row">
+                  <div>
+                    <div class="cart-item-name">${item.name}</div>
+                    <div style="font-size:0.78rem;color:var(--muted);">${formatCurrency(item.price)} · ${item.collection || "Candle"}</div>
+                  </div>
+                  <button class="remove-btn" type="button" data-cart-remove="${item.id}">
+                    Remove
+                  </button>
+                </div>
+                <div class="cart-item-actions">
+                  <div class="qty-control">
+                    <button class="qty-btn" type="button" data-cart-qty-change="${item.id}" data-direction="-1">–</button>
+                    <span aria-label="Quantity">${item.quantity}</span>
+                    <button class="qty-btn" type="button" data-cart-qty-change="${item.id}" data-direction="1">+</button>
+                  </div>
+                  <div style="font-weight:600;">${formatCurrency(item.price * item.quantity)}</div>
+                </div>
+              </div>
+            `;
+            cartItemsContainer.appendChild(row);
+          });
+        }
+      };
+
+      const addToCart = ({ id, name, price, collection }) => {
+        if (!id) return;
+        const existing = cart.get(id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.set(id, {
+            id,
+            name: name || "Candle",
+            price: price || 0,
+            quantity: 1,
+            collection: collection || ""
+          });
+        }
+        updateCartUI();
+      };
+
+      selectAll("[data-add-to-cart]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-product-id");
+          let price = parseFloat(btn.getAttribute("data-product-price") || "0");
+          const name = btn.getAttribute("data-product-name") || "Candle";
+
+          let collection = "";
+          const card = btn.closest("[data-product-card]");
+          if (card) {
+            const meta = select(".product-meta-row div:last-child", card);
+            if (meta) collection = meta.textContent.trim();
+            if (!price) {
+              price = parsePrice(card);
+            }
+          }
+
+          addToCart({ id, name, price, collection });
+          openCart();
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (!(target instanceof HTMLElement)) return;
+
+        const removeId = target.getAttribute("data-cart-remove");
+        if (removeId && cart.has(removeId)) {
+          cart.delete(removeId);
+          updateCartUI();
+          return;
+        }
+
+        const qtyChangeId = target.getAttribute("data-cart-qty-change");
+        const direction = target.getAttribute("data-direction");
+        if (qtyChangeId && direction && cart.has(qtyChangeId)) {
+          const item = cart.get(qtyChangeId);
+          const delta = parseInt(direction, 10);
+          item.quantity += delta;
+          if (item.quantity <= 0) {
+            cart.delete(qtyChangeId);
+          }
+          updateCartUI();
+          return;
+        }
+      });
+
+      const newsletterForm = select("[data-newsletter-form]");
+      const newsletterInput = select("[data-newsletter-input]");
+      const newsletterStatus = select("[data-newsletter-status]");
+
+      if (newsletterForm && newsletterInput && newsletterStatus) {
+        newsletterForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = newsletterInput.value.trim();
+          newsletterStatus.textContent = "";
+          newsletterStatus.className = "newsletter-status";
+
+          if (!email || !email.includes("@") || !email.includes(".")) {
+            newsletterStatus.classList.add("newsletter-status--error");
+            newsletterStatus.textContent = "Please add a valid email address.";
+            return;
+          }
+
+          newsletterStatus.classList.add("newsletter-status--success");
+          newsletterStatus.textContent = "You’re in. Watch your inbox for the next drop.";
+          newsletterInput.value = "";
+        });
+      }
+    });
+  </script>
+</body>
+</html>

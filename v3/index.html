@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Craft Candle Company | Niche Candles for Modern Rituals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Craft Candle Company creates design-forward scents for home, gifting, and daily self-care." />
+  <!-- Analytics placeholder -->
+  <!-- [Analytics Script Here] -->
+
+  <style>
+    /* ===============================
+       CSS VARIABLES & BASE RESET
+       =============================== */
+    :root {
+      --bg: #f6f1ea;
+      --bg-soft: #fbf7f1;
+      --bg-alt: #fff9f3;
+      --ink: #1a130d;
+      --ink-soft: #5f4e40;
+      --muted: #8c7a69;
+      --accent: #b46a3c;
+      --accent-soft: rgba(180, 106, 60, 0.12);
+      --accent-dark: #8c4e29;
+      --danger: #c0392b;
+      --shadow-soft: 0 18px 45px rgba(15, 7, 2, 0.09);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-7: 32px;
+      --space-8: 40px;
+
+      --transition-fast: 0.12s ease-out;
+      --transition-med: 0.2s ease-out;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #fff8f0 0, #f5ede3 42%, #f0e5d8 100%);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* ===============================
+       LAYOUT
+       =============================== */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-main {
+      flex: 1 0 auto;
+    }
+
+    .section {
+      padding: var(--space-8) 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(186, 164, 139, 0.2);
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-heading {
+      margin-bottom: var(--space-5);
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 540px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
+
+    /* ===============================
+       HEADER
+       =============================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(246, 241, 234, 0.96),
+        rgba(246, 241, 234, 0.9),
+        rgba(246, 241, 234, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(186, 164, 139, 0.35);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 78px; /* increased from 46px */
+      width: auto;
+      display: block;
+    }
+
+    /* nav */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--ink);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition-med);
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(186, 164, 139, 0.7);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .cart-icon {
+      font-size: 1rem;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(180, 106, 60, 0.6);
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    /* ===============================
+       BUTTONS & TAGS
+       =============================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      background: #111;
+      color: #fff;
+      box-shadow: 0 16px 38px rgba(18, 11, 5, 0.4);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #b46a3c, #e6b27b);
+      color: #26160b;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 46px rgba(18, 11, 5, 0.5);
+      filter: saturate(1.08);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink-soft);
+      border-color: rgba(186, 164, 139, 0.7);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      background: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(186, 164, 139, 0.5);
+      color: var(--ink-soft);
+      box-shadow: none;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .btn-small {
+      padding: 7px 14px;
+      font-size: 0.8rem;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(186, 164, 139, 0.5);
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      gap: 6px;
+    }
+
+    .tag-soft {
+      background: rgba(255, 255, 255, 0.7);
+      border-style: dashed;
+    }
+
+    /* ===============================
+       HERO
+       =============================== */
+    .hero {
+      padding: 40px 0 60px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .hero-candle-img {
+      height: 210px;
+      border-radius: var(--radius-md);
+      background-image: url("images/candle-sandalwood-vanilla.jpeg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 14px 38px rgba(93, 64, 43, 0.22);
+    }
+
+    .hero-candle-img::after {
+      content: "";
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(217, 193, 166, 0.6);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr);
+      gap: var(--space-3);
+    }
+
+    .hero-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.1rem, 3.3vw, 2.7rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      line-height: 1.1;
+    }
+
+    .hero-heading span {
+      display: inline-block;
+      background: linear-gradient(135deg, #b46a3c, #d89b63);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 18px;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(186, 164, 139, 0.7);
+      color: var(--ink-soft);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero-cta-footnote {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .hero-stat {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-stat-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: rgba(139, 120, 99, 0.9);
+    }
+
+    .hero-stat-value {
+      font-weight: 600;
+    }
+
+    /* ===============================
+       FILTER BAR
+       =============================== */
+    .filter-bar {
+      margin-top: var(--space-6);
+      padding: var(--space-3);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(214, 192, 167, 0.7);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.05);
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+
+    .filter-dropdown-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    .filter-label {
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+
+    .filter-select {
+      position: relative;
+    }
+
+    .filter-select select {
+      width: 100%;
+      appearance: none;
+      padding: 8px 28px 8px 10px;
+      font: inherit;
+      font-size: 0.86rem;
+      border-radius: 999px;
+      border: 1px solid rgba(186, 164, 139, 0.9);
+      background: #fff;
+      color: var(--ink-soft);
+      outline: none;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .filter-select select:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(180, 106, 60, 0.18);
+    }
+
+    .filter-select::after {
+      content: "▾";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .filter-summary {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .mood-group-heading {
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+
+    .mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mood-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(186, 164, 139, 0.75);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+      transition: background var(--transition-fast),
+        border-color var(--transition-fast), box-shadow var(--transition-fast),
+        transform var(--transition-fast), color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mood-btn span {
+      font-size: 0.9rem;
+    }
+
+    .mood-btn:hover {
+      background: #fff;
+      transform: translateY(-0.5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .mood-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      box-shadow: 0 10px 24px rgba(180, 106, 60, 0.25);
+    }
+
+    /* ===============================
+       PRODUCT GRID
+       =============================== */
+    .product-section {
+      background: radial-gradient(circle at top left, #fff9f2, #f6ede3 60%, #efe2d3 100%);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: transform var(--transition-med), box-shadow var(--transition-med),
+        border-color var(--transition-med), background var(--transition-med);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(244, 220, 198, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+      border-color: rgba(186, 164, 139, 0.9);
+      background: #fffdf9;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-image {
+      height: 160px;
+      border-radius: var(--radius-md);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Rotate your three real candle photos across the grid */
+    .product-card:nth-child(3n+1) .product-image {
+      background-image: url("images/candle-sandalwood-vanilla.jpeg");
+    }
+
+    .product-card:nth-child(3n+2) .product-image {
+      background-image: url("images/candle-19.jpeg");
+    }
+
+    .product-card:nth-child(3n) .product-image {
+      background-image: url("images/candle-23.jpeg");
+    }
+
+    .product-image::after {
+      content: "";
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .product-notes {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .product-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .product-price {
+      font-weight: 600;
+    }
+
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: var(--space-3);
+      font-size: 0.8rem;
+    }
+
+    .product-volume {
+      color: var(--muted);
+    }
+
+    .pill-small {
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 4px 9px;
+      border: 1px solid rgba(186, 164, 139, 0.8);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink-soft);
+    }
+
+    /* ===============================
+       COLLECTION GRID (STATIC)
+       =============================== */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .collection-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px solid rgba(217, 193, 166, 0.7);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .collection-name {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .collection-notes {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .collection-footer {
+      margin-top: auto;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ===============================
+       RITUALS / STORY GRID
+       =============================== */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .story-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px solid rgba(217, 193, 166, 0.7);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .story-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .story-list li + li {
+      margin-top: 6px;
+    }
+
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .ritual-item {
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px dashed rgba(186, 164, 139, 0.8);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .ritual-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+
+    /* ===============================
+       JOURNAL PREVIEW
+       =============================== */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .journal-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid rgba(217, 193, 166, 0.7);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.04);
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .journal-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(139, 120, 99, 0.9);
+    }
+
+    .journal-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+
+    /* ===============================
+       CONTACT / FOOTER
+       =============================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-6);
+      align-items: flex-start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-item {
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(217, 193, 166, 0.9);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(139, 120, 99, 0.95);
+      margin-bottom: 4px;
+    }
+
+    .contact-highlight {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .newsletter-card {
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      background: linear-gradient(145deg, #1b1410, #3b291e);
+      color: #fdf3e6;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+      display: grid;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .newsletter-input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .newsletter-input {
+      flex: 1 1 160px;
+      min-width: 0;
+    }
+
+    .newsletter-input input {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: rgba(15, 11, 8, 0.7);
+      color: #fefaf4;
+      font: inherit;
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .newsletter-input input::placeholder {
+      color: rgba(253, 245, 235, 0.6);
+    }
+
+    .newsletter-input input:focus-visible {
+      box-shadow: 0 0 0 2px rgba(255, 215, 172, 0.6);
+    }
+
+    .newsletter-footnote {
+      font-size: 0.78rem;
+      color: rgba(255, 242, 226, 0.8);
+    }
+
+    .newsletter-status {
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .newsletter-status--error {
+      color: #ffd3c4;
+    }
+
+    .newsletter-status--success {
+      color: #fdd39b;
+    }
+
+    .site-footer {
+      padding: 14px 20px 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(186, 164, 139, 0.45);
+      background: rgba(248, 241, 233, 0.98);
+      margin-top: var(--space-4);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* ===============================
+       CART PANEL
+       =============================== */
+    .cart-panel-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 9, 3, 0.35);
+      display: none;
+      align-items: stretch;
+      justify-content: flex-end;
+      z-index: 40;
+    }
+
+    .cart-panel-backdrop.is-visible {
+      display: flex;
+    }
+
+    .cart-panel {
+      width: min(420px, 100%);
+      background: #fffdf9;
+      box-shadow: -24px 0 60px rgba(0, 0, 0, 0.4);
+      border-left: 1px solid rgba(186, 164, 139, 0.7);
+      display: flex;
+      flex-direction: column;
+      max-height: 100vh;
+    }
+
+    .cart-panel-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(217, 193, 166, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-panel-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .cart-panel-body {
+      padding: 16px;
+      overflow-y: auto;
+      flex: 1 1 auto;
+      display: grid;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .cart-panel-footer {
+      padding: 16px;
+      border-top: 1px solid rgba(217, 193, 166, 0.7);
+      display: grid;
+      gap: 8px;
+      font-size: 0.9rem;
+      background: #fff9f3;
+    }
+
+    .cart-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(222, 206, 188, 0.7);
+    }
+
+    .cart-line:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cart-line-name {
+      font-weight: 500;
+    }
+
+    .cart-line-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .cart-line-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+
+    .cart-line-qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(186, 164, 139, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-empty {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 6px 0;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .cart-subtotal-label {
+      color: var(--muted);
+    }
+
+    .cart-subtotal-value {
+      font-weight: 600;
+    }
+
+    /* ===============================
+       UTILITIES
+       =============================== */
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(139, 120, 99, 0.95);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .link-inline {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    .stack {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .stack-lg {
+      gap: var(--space-5);
+    }
+
+    .pill-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(217, 193, 166, 0),
+        rgba(217, 193, 166, 0.9),
+        rgba(217, 193, 166, 0)
+      );
+      margin: var(--space-5) 0;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===============================
+       RESPONSIVE
+       =============================== */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .filter-bar {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .collections-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .split-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .journal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        padding-inline: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-actions {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 1px solid rgba(186, 164, 139, 0.8);
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .collections-grid,
+      .journal-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .filter-bar {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .filter-dropdown-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" id="top">
+      <div class="container site-header-inner">
+        <a href="#top" class="logo" aria-label="Craft Candle Company home">
+          <img src="images/logo-craft-conscious.jpeg" alt="Craft Candle Company logo">
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="#shop">Shop</a></li>
+            <li><a class="nav-link" href="#collections">Collections</a></li>
+            <li><a class="nav-link" href="#story">About</a></li>
+            <li><a class="nav-link" href="#rituals">Rituals</a></li>
+            <li><a class="nav-link" href="#journal">Journal</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <button class="btn btn-secondary btn-small nav-links-desktop-only" data-scroll-to="#shop">
+              Shop candles
+            </button>
+            <button class="cart-toggle" type="button" aria-label="Open cart" data-cart-toggle>
+              <span class="cart-icon" aria-hidden="true">🛒</span>
+              <span class="cart-count" data-cart-count>0</span>
+            </button>
+          </div>
+        </nav>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <!-- HERO -->
+      <section class="hero section" id="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy reveal">
+            <div class="hero-pill-row">
+              <div class="pill">
+                <span>✨</span>
+                <span>Small-batch, niche candle studio</span>
+              </div>
+              <span class="tag">Phthalate-free oils</span>
+            </div>
+            <h1 class="hero-heading">
+              Niche candles for<br />
+              <span>modern daily rituals.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Craft Candle Company creates design-forward scents that feel like mood lighting for your day—quiet mornings, deep-focus afternoons, and slow evenings. Poured by hand in small runs with a clean-burning wax blend.
+            </p>
+            <div class="hero-cta-row">
+              <button class="btn btn-primary" data-scroll-to="#shop">
+                Browse candles
+              </button>
+              <button class="btn btn-ghost btn-small" data-scroll-to="#collections">
+                Explore collections
+              </button>
+            </div>
+            <div class="hero-stat-row">
+              <div class="hero-stat">
+                <div class="hero-stat-label">Pour style</div>
+                <div class="hero-stat-value">Coconut-apricot blend · Wooden wicks</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-label">Made in</div>
+                <div class="hero-stat-value">Raleigh, North Carolina</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card reveal" aria-hidden="true">
+            <div class="hero-card-inner">
+              <div class="hero-candle-img"></div>
+              <div class="hero-card-meta">
+                <div class="hero-chip-row">
+                  <span class="tag">Signature</span>
+                  <span class="tag">Best seller</span>
+                </div>
+                <div>
+                  <div class="product-name">Smoked Vanilla Resin</div>
+                  <div class="product-notes">Vanilla bean · Labdanum · Charred cedar</div>
+                </div>
+                <div class="product-meta-row">
+                  <div class="product-price">$46</div>
+                  <div class="product-volume">10 oz · approx. 50 hr burn</div>
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                    data-product-id="smoked-vanilla-resin"
+                    data-product-name="Smoked Vanilla Resin"
+                    data-product-price="46">
+                    Add to cart
+                  </button>
+                  <span class="muted">For cozy nights + deep reads.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="container" id="shop">
+          <div class="filter-bar reveal">
+            <div>
+              <div class="section-kicker">Shop</div>
+              <h2 class="section-title" style="font-size:1.3rem;">Find your next burn.</h2>
+              <p class="section-subtitle">
+                Filter by collection, scent family, and price — or tap a mood below and we’ll pre-fill the fields for you.
+              </p>
+              <p class="filter-summary" data-filter-summary>
+                Showing all candles across every collection.
+              </p>
+            </div>
+
+            <div>
+              <div class="filter-dropdown-row">
+                <div class="filter-group">
+                  <div class="filter-label">Collection</div>
+                  <div class="filter-select">
+                    <select id="filter-collection">
+                      <option value="all">All collections</option>
+                      <option value="core">Core Rituals</option>
+                      <option value="city">City Stories</option>
+                      <option value="evening">Evening Rituals</option>
+                      <option value="limited">Limited Runs</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="filter-group">
+                  <div class="filter-label">Scent family</div>
+                  <div class="filter-select">
+                    <select id="filter-family">
+                      <option value="all">All scent families</option>
+                      <option value="cozy">Cozy · Gourmand</option>
+                      <option value="fresh">Fresh · Clean</option>
+                      <option value="floral">Floral</option>
+                      <option value="woody">Woody · Smoky</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="filter-group">
+                  <div class="filter-label">Price</div>
+                  <div class="filter-select">
+                    <select id="filter-price">
+                      <option value="all">All prices</option>
+                      <option value="budget">Under $30</option>
+                      <option value="mid">$30–$45</option>
+                      <option value="premium">$46+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <div class="mood-group-heading">
+                  What are you in the mood for?
+                </div>
+                <div class="mood-buttons" aria-label="Mood-based quick filters">
+                  <button class="mood-btn"
+                          data-collection="core"
+                          data-family="cozy"
+                          data-price="mid">
+                    <span>🕯️</span> Cozy
+                  </button>
+                  <button class="mood-btn"
+                          data-collection="core"
+                          data-family="fresh"
+                          data-price="mid">
+                    <span>🌿</span> Fresh
+                  </button>
+                  <button class="mood-btn"
+                          data-collection="evening"
+                          data-family="smoky"
+                          data-price="premium">
+                    <span>🔥</span> Smoky
+                  </button>
+                  <button class="mood-btn"
+                          data-collection="city"
+                          data-family="woody"
+                          data-price="premium">
+                    <span>🌲</span> Woody
+                  </button>
+                  <button class="mood-btn"
+                          data-collection="all"
+                          data-family="all"
+                          data-price="all">
+                    <span>✨</span> Show all
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT GRID -->
+      <section class="section product-section" aria-labelledby="collections-heading">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div class="section-kicker">Collections</div>
+            <h2 class="section-title" id="collections-heading">Small-batch candle collections</h2>
+            <p class="section-subtitle">
+              A curated menu of core scents plus rotating stories. All poured in amber glass jars that feel at home on a nightstand or vinyl console.
+            </p>
+          </div>
+
+          <div class="product-grid" data-product-grid>
+            <!-- Core Rituals -->
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="soft-morning"
+                     data-collection="core"
+                     data-scent-family="fresh"
+                     data-mood="fresh,cozy"
+                     data-price="40">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Soft Morning</div>
+              <div class="product-notes">Linen · Neroli · Steamed milk</div>
+              <div class="product-meta-row">
+                <div class="product-price">$40</div>
+                <div class="product-volume">8.5 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="soft-morning"
+                        data-product-name="Soft Morning"
+                        data-product-price="40">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For slow starts + open windows.</span>
+              </div>
+            </article>
+
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="desk-light"
+                     data-collection="core"
+                     data-scent-family="fresh"
+                     data-mood="fresh,focus"
+                     data-price="40">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Desk Light</div>
+              <div class="product-notes">Clementine · Earl grey · White cedar</div>
+              <div class="product-meta-row">
+                <div class="product-price">$40</div>
+                <div class="product-volume">8.5 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="desk-light"
+                        data-product-name="Desk Light"
+                        data-product-price="40">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For to-do lists and deep work.</span>
+              </div>
+            </article>
+
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="night-shift"
+                     data-collection="core"
+                     data-scent-family="woody"
+                     data-mood="woody,cozy"
+                     data-price="42">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Night Shift</div>
+              <div class="product-notes">Dark coffee · Smoked cardamom · Tonka</div>
+              <div class="product-meta-row">
+                <div class="product-price">$42</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="night-shift"
+                        data-product-name="Night Shift"
+                        data-product-price="42">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For late-night builds + edits.</span>
+              </div>
+            </article>
+
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="third-space"
+                     data-collection="core"
+                     data-scent-family="cozy"
+                     data-mood="cozy"
+                     data-price="42">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Third Space</div>
+              <div class="product-notes">Cashmere · Sheer musk · Toasted almond</div>
+              <div class="product-meta-row">
+                <div class="product-price">$42</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="third-space"
+                        data-product-name="Third Space"
+                        data-product-price="42">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For company, playlists, and games.</span>
+              </div>
+            </article>
+
+            <!-- City Stories -->
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="urban-loft"
+                     data-collection="city"
+                     data-scent-family="woody"
+                     data-mood="woody,city"
+                     data-price="48">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Urban Loft</div>
+              <div class="product-notes">Worn leather · Concrete · Sueded cedar</div>
+              <div class="product-meta-row">
+                <div class="product-price">$48</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="urban-loft"
+                        data-product-name="Urban Loft"
+                        data-product-price="48">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For city windows + late-night drives.</span>
+              </div>
+            </article>
+
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="after-the-show"
+                     data-collection="city"
+                     data-scent-family="smoky"
+                     data-mood="smoky,city"
+                     data-price="48">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">After the Show</div>
+              <div class="product-notes">Incense smoke · Velvet · Whiskey peel</div>
+              <div class="product-meta-row">
+                <div class="product-price">$48</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="after-the-show"
+                        data-product-name="After the Show"
+                        data-product-price="48">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For post-show debriefs + soft replays.</span>
+              </div>
+            </article>
+
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="neon-diner"
+                     data-collection="city"
+                     data-scent-family="cozy"
+                     data-mood="cozy,city"
+                     data-price="44">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Neon Diner</div>
+              <div class="product-notes">Warm sugar · Salted butter · Night air</div>
+              <div class="product-meta-row">
+                <div class="product-price">$44</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="neon-diner"
+                        data-product-name="Neon Diner"
+                        data-product-price="44">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For midnight snacks + road-trip plotting.</span>
+              </div>
+            </article>
+
+            <!-- Evening Rituals -->
+            <article class="product-card reveal"
+                     data-product-card
+                     data-id="quiet-library"
+                     data-collection="evening"
+                     data-scent-family="smoky"
+                     data-mood="cozy,smoky"
+                     data-price="46">
+              <div class="product-image" aria-hidden="true"></div>
+              <div class="product-name">Quiet Library</div>
+              <div class="product-notes">Cashmere woods · Old paper · Smoked tonka</div>
+              <div class="product-meta-row">
+                <div class="product-price">$46</div>
+                <div class="product-volume">10 oz</div>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-primary btn-small" type="button" data-add-to-cart
+                        data-product-id="quiet-library"
+                        data-product-name="Quiet Library"
+                        data-product-price="46">
+                  Add to cart
+                </button>
+                <span class="product-volume muted">For annotated margins + lo-fi playlists.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collections Overview -->
+      <section class="section" id="collections">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div class="section-kicker">Collections</div>
+            <h2 class="section-title">How the scents are organized</h2>
+            <p class="section-subtitle">
+              Craft Candle Company is built around how you actually move through a day — not just top/heart/base notes.
+            </p>
+          </div>
+
+          <div class="collections-grid">
+            <article class="collection-card">
+              <div class="collection-name">Core Rituals</div>
+              <p class="collection-notes">
+                The everyday set. Scents built to live on your desk, nightstand, or kitchen counter without ever getting old.
+              </p>
+              <p class="collection-footer">
+                Think: calm focus, soft mornings, and “I always burn this when I’m working.”
+              </p>
+            </article>
+
+            <article class="collection-card">
+              <div class="collection-name">City Stories</div>
+              <p class="collection-notes">
+                Candles that feel like late-night slices, subway tile, and favorite side streets. Slightly moodier, a little louder.
+              </p>
+              <p class="collection-footer">
+                Great for living rooms, media corners, and playlists that lean left-of-center.
+              </p>
+            </article>
+
+            <article class="collection-card">
+              <div class="collection-name">Evening Rituals</div>
+              <p class="collection-notes">
+                Deep, slow-burning scents made for unwinding: reading, journaling, stretching, or just existing.
+              </p>
+              <p class="collection-footer">
+                Best for the hour before bed, or the one after everyone else falls asleep.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT & RITUALS -->
+      <section class="section" id="story">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div class="section-kicker">Story</div>
+            <h2 class="section-title">Built around how real people live.</h2>
+          </div>
+
+          <div class="split-grid">
+            <article class="story-card">
+              <div>
+                <div class="eyebrow">Craft Candle Company</div>
+                <p class="section-subtitle">
+                  This studio started as a way to make spaces feel more intentional without redecorating an entire room. One match, one scent, one small ritual.
+                </p>
+              </div>
+              <ul class="story-list">
+                <li>Coconut-apricot wax blend for a smooth, even burn.</li>
+                <li>Fragrance oils vetted for safer burning (phthalate-free, no weird extras).</li>
+                <li>Small pours so each batch can be tested, tweaked, and improved.</li>
+                <li>Amber glass jars that look good in real homes, not just photo shoots.</li>
+              </ul>
+            </article>
+
+            <div id="rituals">
+              <div class="eyebrow" style="margin-bottom:8px;">Ritual ideas</div>
+              <div class="rituals-grid">
+                <div class="ritual-item">
+                  <div class="ritual-icon">☕</div>
+                  <div>
+                    <strong>First-cup candle.</strong><br />
+                    Light a single scent every morning when you make coffee or tea. When it’s burning, you’re off your phone.
+                  </div>
+                </div>
+                <div class="ritual-item">
+                  <div class="ritual-icon">💻</div>
+                  <div>
+                    <strong>Deep work timer.</strong><br />
+                    Pick a candle you only burn while focused. When it’s lit, no doomscrolling.
+                  </div>
+                </div>
+                <div class="ritual-item">
+                  <div class="ritual-icon">📚</div>
+                  <div>
+                    <strong>End-of-day page.</strong><br />
+                    Light, write one page (or read ten), then blow it out. Tiny ritual, big impact.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNAL -->
+      <section class="section" id="journal">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div class="section-kicker">Journal</div>
+            <h2 class="section-title">Notes from the candle studio</h2>
+            <p class="section-subtitle">
+              Behind-the-scenes testing, scent-building experiments, and ways to make your space feel a little more like you.
+            </p>
+          </div>
+
+          <div class="journal-grid">
+            <article class="journal-card">
+              <div class="journal-tag">Scent Lab</div>
+              <div class="journal-title">What makes a “cozy” scent actually feel cozy?</div>
+              <p>
+                It’s not just vanilla. It’s temperature, texture, and what your brain associates with comfort.
+              </p>
+            </article>
+
+            <article class="journal-card">
+              <div class="journal-tag">Care</div>
+              <div class="journal-title">A quick guide to getting a clean burn.</div>
+              <p>
+                Wick trimming, first burn rules, and why tunneling happens (and how to avoid it).
+              </p>
+            </article>
+
+            <article class="journal-card">
+              <div class="journal-tag">Studio Notes</div>
+              <div class="journal-title">Why small-batch matters for scent.</div>
+              <p>
+                Pouring in smaller runs lets us test how each scent behaves in real homes, not just in a lab.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div class="section-kicker">Connect</div>
+            <h2 class="section-title">Questions, stockists, or custom projects?</h2>
+            <p class="section-subtitle">
+              Whether you’re shopping for yourself, a project, or a space, we’re here to help you find (or create) the right scent.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-list reveal">
+              <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div><a href="mailto:hello@craftcandle.co">hello@craftcandle.co</a></div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">Stockists</div>
+                <div>Interested in carrying Craft? Get in touch for a current line sheet.</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">Custom projects</div>
+                <div>Looking for scent support for a brand, event, or space? Tell us what you’re working on.</div>
+              </div>
+            </div>
+
+            <aside class="newsletter-card">
+              <div class="newsletter-title">Studio list</div>
+              <p>
+                The list gets small-run launches, occasionally chaotic scent experiments, and first dibs on seasonal drops.
+              </p>
+              <form id="newsletter-form" novalidate>
+                <div class="newsletter-input-row">
+                  <div class="newsletter-input">
+                    <input type="email" id="newsletter-email" placeholder="you@email.com" />
+                  </div>
+                  <button class="btn btn-primary btn-small" type="submit">
+                    Join the list
+                  </button>
+                </div>
+                <div class="newsletter-footnote">
+                  Zero spam. A few good emails a month, tops.
+                </div>
+                <div class="newsletter-status" id="newsletter-status" aria-live="polite"></div>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          © <span id="year"></span> Craft Candle Company · Built for modern rituals.
+        </div>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+          <a href="#shop">Shop</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="cart-panel-backdrop" data-cart-backdrop aria-hidden="true">
+    <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-heading">
+      <header class="cart-panel-header">
+        <div class="cart-panel-title" id="cart-heading">Cart</div>
+        <button type="button" aria-label="Close cart" data-cart-toggle>✕</button>
+      </header>
+      <div class="cart-panel-body" data-cart-body>
+        <div class="cart-empty" data-cart-empty>
+          Your cart is currently empty. Add a candle to start your ritual stack.
+        </div>
+      </div>
+      <footer class="cart-panel-footer">
+        <div class="cart-subtotal-row">
+          <div class="cart-subtotal-label">Subtotal</div>
+          <div class="cart-subtotal-value">$<span data-cart-subtotal>0</span></div>
+        </div>
+        <button class="btn btn-primary btn-full" type="button">
+          Pretend checkout
+        </button>
+        <div class="muted" style="font-size:0.8rem;">
+          This is a demo cart only. When you’re ready to sell, plug in your real checkout (Shopify, Lemon Squeezy, etc.).
+        </div>
+      </footer>
+    </aside>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const scrollLinks = document.querySelectorAll("[data-scroll-to]");
+    scrollLinks.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-scroll-to");
+        const el = document.querySelector(target);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    const collectionSelect = document.getElementById("filter-collection");
+    const familySelect = document.getElementById("filter-family");
+    const priceSelect = document.getElementById("filter-price");
+    const productCards = document.querySelectorAll("[data-product-card]");
+    const moodButtons = document.querySelectorAll(".mood-btn");
+    const filterSummary = document.querySelector("[data-filter-summary]");
+
+    function applyFilters() {
+      const collectionValue = collectionSelect.value;
+      const familyValue = familySelect.value;
+      const priceValue = priceSelect.value;
+
+      let visibleCount = 0;
+
+      productCards.forEach(card => {
+        const cardCollection = card.getAttribute("data-collection");
+        const cardFamily = card.getAttribute("data-scent-family");
+        const cardPrice = parseFloat(card.getAttribute("data-price"));
+
+        const matchesCollection =
+          collectionValue === "all" || cardCollection === collectionValue;
+
+        let familyMatch = false;
+        if (familyValue === "all") {
+          familyMatch = true;
+        } else if (familyValue === "cozy") {
+          familyMatch = cardFamily === "cozy" || cardFamily === "gourmand";
+        } else if (familyValue === "fresh") {
+          familyMatch = cardFamily === "fresh" || cardFamily === "citrus";
+        } else if (familyValue === "woody") {
+          familyMatch = cardFamily === "woody" || cardFamily === "smoky";
+        } else if (familyValue === "smoky") {
+          familyMatch = cardFamily === "smoky";
+        } else if (familyValue === cardFamily) {
+          familyMatch = true;
+        }
+
+        let priceMatch = false;
+        if (priceValue === "all") {
+          priceMatch = true;
+        } else if (priceValue === "budget") {
+          priceMatch = cardPrice < 30;
+        } else if (priceValue === "mid") {
+          priceMatch = cardPrice >= 30 && cardPrice <= 45;
+        } else if (priceValue === "premium") {
+          priceMatch = cardPrice > 45;
+        }
+
+        const shouldShow = matchesCollection && familyMatch && priceMatch;
+        card.style.display = shouldShow ? "" : "none";
+        if (shouldShow) visibleCount += 1;
+      });
+
+      let summary = "Showing ";
+      summary += visibleCount === productCards.length
+        ? "all candles"
+        : visibleCount + " candle" + (visibleCount === 1 ? "" : "s");
+
+      if (collectionValue !== "all") {
+        const collectionLabel = collectionSelect.options[collectionSelect.selectedIndex].textContent;
+        summary += " in " + collectionLabel;
+      } else {
+        summary += " across every collection";
+      }
+
+      if (familyValue !== "all") {
+        const familyLabel = familySelect.options[familySelect.selectedIndex].textContent;
+        summary += " · scent family: " + familyLabel;
+      }
+
+      if (priceValue !== "all") {
+        const priceLabel = priceSelect.options[priceSelect.selectedIndex].textContent;
+        summary += " · price: " + priceLabel;
+      }
+
+      summary += ".";
+
+      if (filterSummary) {
+        filterSummary.textContent = summary;
+      }
+    }
+
+    if (collectionSelect && familySelect && priceSelect) {
+      [collectionSelect, familySelect, priceSelect].forEach(select => {
+        select.addEventListener("change", () => {
+          moodButtons.forEach(btn => btn.classList.remove("active"));
+          applyFilters();
+        });
+      });
+
+      moodButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const { collection, family, price } = btn.dataset;
+          if (collection) collectionSelect.value = collection;
+          if (family) familySelect.value = family;
+          if (price) priceSelect.value = price;
+
+          moodButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          applyFilters();
+        });
+      });
+
+      applyFilters();
+    }
+
+    const cartToggleButtons = document.querySelectorAll("[data-cart-toggle]");
+    const cartBackdrop = document.querySelector("[data-cart-backdrop]");
+    const cartBody = document.querySelector("[data-cart-body]");
+    const cartEmpty = document.querySelector("[data-cart-empty]");
+    const cartSubtotalEl = document.querySelector("[data-cart-subtotal]");
+    const cartCountEl = document.querySelector("[data-cart-count]");
+    const cartAddButtons = document.querySelectorAll("[data-add-to-cart]");
+
+    const cartState = {
+      items: [],
+      subtotal: 0,
+    };
+
+    function renderCart() {
+      if (!cartBody || !cartEmpty || !cartSubtotalEl || !cartCountEl) return;
+
+      cartBody.innerHTML = "";
+
+      if (cartState.items.length === 0) {
+        cartEmpty.style.display = "";
+        cartBody.appendChild(cartEmpty);
+      } else {
+        cartEmpty.style.display = "none";
+        cartState.items.forEach(item => {
+          const line = document.createElement("div");
+          line.className = "cart-line";
+
+          const left = document.createElement("div");
+          left.innerHTML = `
+            <div class="cart-line-name">${item.name}</div>
+            <div class="cart-line-meta">${item.qty} × $${item.price}</div>
+          `;
+
+          const right = document.createElement("div");
+          right.innerHTML = `
+            <div class="cart-line-controls">
+              <button class="cart-line-qty-btn" data-qty-minus>-</button>
+              <span>${item.qty}</span>
+              <button class="cart-line-qty-btn" data-qty-plus>+</button>
+            </div>
+            <div>$${(item.price * item.qty).toFixed(2)}</div>
+          `;
+
+          line.appendChild(left);
+          line.appendChild(right);
+
+          line.querySelector("[data-qty-minus]").addEventListener("click", () => {
+            item.qty -= 1;
+            if (item.qty <= 0) {
+              cartState.items = cartState.items.filter(i => i.id !== item.id);
+            }
+            updateCart();
+          });
+
+          line.querySelector("[data-qty-plus]").addEventListener("click", () => {
+            item.qty += 1;
+            updateCart();
+          });
+
+          cartBody.appendChild(line);
+        });
+      }
+
+      cartSubtotalEl.textContent = cartState.subtotal.toFixed(2);
+      const totalQty = cartState.items.reduce((sum, item) => sum + item.qty, 0);
+      cartCountEl.textContent = totalQty;
+    }
+
+    function updateCart() {
+      cartState.subtotal = cartState.items.reduce(
+        (sum, item) => sum + item.price * item.qty,
+        0
+      );
+      renderCart();
+    }
+
+    function openCart() {
+      if (cartBackdrop) {
+        cartBackdrop.classList.add("is-visible");
+        cartBackdrop.removeAttribute("aria-hidden");
+      }
+    }
+
+    function closeCart() {
+      if (cartBackdrop) {
+        cartBackdrop.classList.remove("is-visible");
+        cartBackdrop.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    cartToggleButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (!cartBackdrop) return;
+        const isVisible = cartBackdrop.classList.contains("is-visible");
+        if (isVisible) {
+          closeCart();
+        } else {
+          openCart();
+        }
+      });
+    });
+
+    cartAddButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-product-id");
+        const name = btn.getAttribute("data-product-name");
+        const price = parseFloat(btn.getAttribute("data-product-price"));
+
+        let existing = cartState.items.find(item => item.id === id);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cartState.items.push({ id, name, price, qty: 1 });
+        }
+
+        updateCart();
+        openCart();
+      });
+    });
+
+    updateCart();
+
+    const newsletterForm = document.getElementById("newsletter-form");
+    const newsletterEmail = document.getElementById("newsletter-email");
+    const newsletterStatus = document.getElementById("newsletter-status");
+
+    if (newsletterForm && newsletterEmail && newsletterStatus) {
+      newsletterForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const email = newsletterEmail.value.trim();
+        newsletterStatus.className = "newsletter-status";
+
+        if (!email || !email.includes("@") || !email.includes(".")) {
+          newsletterStatus.classList.add("newsletter-status--error");
+          newsletterStatus.textContent = "Please add a valid email address.";
+          return;
+        }
+
+        newsletterStatus.classList.add("newsletter-status--success");
+        newsletterStatus.textContent = "You’re in. Watch your inbox for the next drop.";
+        newsletterEmail.value = "";
+      });
+    }
+  </script>
+</body>
+</html>

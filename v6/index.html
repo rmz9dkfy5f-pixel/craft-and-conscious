@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Craft and Conscious Candle Company</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Craft and Conscious Candle Company — small-batch, hand-poured candles with thoughtful scent stories and clean ingredients." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-alt: #151821;
+      --card: #181b25;
+      --accent: #f2b36f;
+      --accent-soft: rgba(242,179,111,0.18);
+      --text: #f7f6f4;
+      --muted: #b3b6c5;
+      --border-subtle: rgba(255,255,255,0.06);
+      --shadow-soft: 0 24px 50px rgba(0,0,0,0.65);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #232635 0, #050609 52%, #020308 100%);
+      color: var(--text);
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      padding: 0 18px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,6,10,0.92), rgba(5,6,10,0.65) 60%, transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 10px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo {
+      width: 110px;
+      max-width: 24vw;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand-name {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .brand-tag {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .nav a {
+      position: relative;
+    }
+    .nav a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ffdf9f);
+      border-color: transparent;
+      color: #30160a;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 40px 0 32px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(101, 112, 133, 0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(242,179,111,0.9);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      letter-spacing: 0.03em;
+    }
+    .accent {
+      color: var(--accent);
+    }
+    .hero-lead {
+      margin: 0 0 18px;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      line-height: 1.6;
+    }
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-note span {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      justify-self: center;
+      width: min(100%, 340px);
+    }
+    .hero-photo-card {
+      background: var(--card);
+      border-radius: 26px;
+      padding: 10px 10px 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .hero-photo-card img {
+      border-radius: 20px;
+    }
+    .hero-photo-caption {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Featured candles */
+    .section {
+      padding: 26px 0 18px;
+    }
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card img {
+      border-radius: 14px;
+    }
+    .card-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .card-notes {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Process / Contact */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+    }
+    .list li {
+      display: flex;
+      gap: 8px;
+    }
+    .list li span {
+      margin-top: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .panel {
+      background: linear-gradient(135deg, rgba(242,179,111,0.12), rgba(19,20,32,0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(242,179,111,0.5);
+      padding: 12px 14px 14px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+    .panel strong {
+      color: var(--text);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 22px;
+      padding: 14px 0 20px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner,
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 30px;
+      }
+      .nav {
+        display: none;
+      }
+      .site-header {
+        position: static;
+        background: linear-gradient(to bottom, rgba(5,6,10,1), rgba(5,6,10,0.8));
+      }
+      .hero-photo-wrap {
+        order: -1;
+      }
+      .brand-logo {
+        width: 96px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <!-- TOP LEFT: logo + brand text -->
+          <div class="brand">
+            <div class="brand-logo">
+              <img src="images/logo-craft-conscious.jpeg" alt="Craft and Conscious Candle Company logo">
+            </div>
+            <div class="brand-text">
+              <div class="brand-name">CRAFT AND CONSCIOUS</div>
+              <div class="brand-tag">Candle Company</div>
+            </div>
+          </div>
+
+          <!-- TOP RIGHT: nav, same as before -->
+          <nav class="nav">
+            <a href="#featured">Candles</a>
+            <a href="#process">Our Process</a>
+            <a href="#contact">Wholesale &amp; Custom</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Small-batch • Clean-burning • Intentionally scented
+            </div>
+            <h1>Thoughtful candles for people who notice the details.</h1>
+            <p class="hero-lead">
+              Craft and Conscious Candle Company hand-pours each candle with care — clean ingredients,
+              comforting scent profiles, and a slow, steady burn that feels as good as it smells.
+            </p>
+            <div class="hero-row">
+              <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Talk About Your Candle Line
+              </button>
+              <span class="hero-note">
+                <span></span>
+                Perfect for boutiques, barbershops, and cozy homes.
+              </span>
+            </div>
+          </div>
+
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-card">
+              <img src="images/candle-sandalwood-vanilla.jpeg" alt="Sandalwood Vanilla amber jar candle on textured fabric">
+              <div class="hero-photo-caption">
+                Sandalwood Vanilla test burn in amber glass with wood wick.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title">Featured test pours</div>
+            <div class="section-sub">Placeholder images from your early batches, until the pro photos arrive.</div>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <img src="images/candle-19.jpeg" alt="Amber jar candle labeled 19 on textured surface">
+              <div class="card-name">Blend 19</div>
+              <div class="card-notes">
+                Clean, classic test blend in amber glass. Great candidate for a core everyday scent.
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="images/candle-23.jpeg" alt="Amber jar candle with deep-colored wax labeled 23">
+              <div class="card-name">Blend 23</div>
+              <div class="card-notes">
+                Rich, moody wax tone perfect for evening or “lounge” scents in a future collection.
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="images/candle-sandalwood-vanilla.jpeg" alt="Sandalwood Vanilla test candle in amber jar">
+              <div class="card-name">Sandalwood Vanilla</div>
+              <div class="card-notes">
+                Warm woods and creamy vanilla — an easy crowd-pleaser and cozy “signature” option.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title">How this grows into a full line</div>
+            <div class="section-sub">From test jars on a bedspread to a polished brand on shelves.</div>
+          </div>
+          <div class="two-col">
+            <ul class="list">
+              <li>
+                <span></span>
+                <div>
+                  <strong>Dial in the scent profiles.</strong><br />
+                  Use these early pours to decide which directions feel most “Craft and Conscious” — cozy, smoky, fresh, or something in between.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>Lock in vessel + wick choices.</strong><br />
+                  Amber glass, wood wicks, and clean labels already create a strong aesthetic foundation.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>Design labels that match the logo.</strong><br />
+                  Tie in the CC mark, your flame icon, and minimal typography for a cohesive shelf presence.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>Scale into collections.</strong><br />
+                  Group scents into families (cozy, fresh, woody, floral) for easy merchandising online and in-store.
+                </div>
+              </li>
+            </ul>
+
+            <div class="panel" id="contact">
+              <strong>Next step: plan the first real collection.</strong>
+              <div>
+                Use this site as a working board — swap these placeholder images for pro photos as you refine your line.
+              </div>
+              <div>
+                <strong>Working contact (example):</strong><br />
+                hello@craftandconsciouscandles.com<br />
+                Raleigh, North Carolina
+              </div>
+              <div>
+                When you’re ready, this section can hold your wholesale details, minimums, and lead times — for now it’s just here to remind you you’re building something legit.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <span>© <span id="year"></span> Craft and Conscious Candle Company</span>
+          <span>Small-batch, intentionally scented candles</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

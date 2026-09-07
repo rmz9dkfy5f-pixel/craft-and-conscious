@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lumen & Wick | Hand-Poured Soy Candles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Small-batch, hand-poured candles with clean ingredients, crackling wood wicks, and scent profiles inspired by real spaces and moods." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-alt: #151821;
+      --card: #181b25;
+      --accent: #f2b36f;
+      --accent-soft: rgba(242,179,111,0.18);
+      --text: #f7f6f4;
+      --muted: #b3b6c5;
+      --border-subtle: rgba(255,255,255,0.06);
+      --shadow-soft: 0 24px 50px rgba(0,0,0,0.65);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #232635 0, #050609 52%, #020308 100%);
+      color: var(--text);
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      padding: 0 18px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,6,10,0.92), rgba(5,6,10,0.65) 60%, transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 10px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #ffe1ba 0, #f2b36f 40%, #f28f6f 75%, #7f3d26 100%);
+      position: relative;
+      box-shadow: 0 0 16px rgba(242,179,111,0.8);
+      overflow: hidden;
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 18% 22%;
+      border-radius: 20px;
+      border: 2px solid rgba(0,0,0,0.4);
+      border-top-color: transparent;
+      border-left-color: transparent;
+      transform: rotate(16deg);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: "DM Serif Display", serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+    .brand-tag {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .nav a {
+      position: relative;
+    }
+    .nav a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+    .nav .btn {
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ffdf9f);
+      border-color: transparent;
+      color: #30160a;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 42px 0 32px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(101, 112, 133, 0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(242,179,111,0.9);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      letter-spacing: 0.03em;
+    }
+    .accent {
+      color: var(--accent);
+    }
+    .hero-lead {
+      margin: 0 0 18px;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      line-height: 1.6;
+    }
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-note span {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .hero-perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .perk {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .perk-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: inset 0 0 0 2px rgba(5,6,10,0.8);
+      background: radial-gradient(circle at 30% 20%, #ffe1ba 0, #f2b36f 38%, #7f3d26 100%);
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      justify-self: center;
+      width: min(100%, 360px);
+    }
+    .candle-card {
+      background: radial-gradient(circle at 20% 0%, rgba(255,240,210,0.08), transparent 50%), var(--card);
+      border-radius: 28px;
+      padding: 20px 20px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .candle-glow {
+      position: absolute;
+      inset: -45%;
+      background: radial-gradient(circle at 50% 0%, rgba(255,230,170,0.3) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .jar {
+      position: relative;
+      z-index: 1;
+      width: 140px;
+      height: 180px;
+      margin: 10px auto 18px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #faf2e5 0, #f1dfc3 55%, #e4c29d 100%);
+      box-shadow:
+        0 26px 50px rgba(0,0,0,0.65),
+        inset 0 0 0 1px rgba(255,255,255,0.8);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .jar-inner {
+      width: 80%;
+      height: 70%;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #f9f1e4 0, #f0ddc6 60%, #e6c6a3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .flame {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 42px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 50% 15%, #fffbe5 0, #ffd27a 40%, #f28f6f 70%, transparent 100%);
+      box-shadow:
+        0 0 22px rgba(255,210,122,0.9),
+        0 0 40px rgba(242,142,111,0.7);
+    }
+    .wick {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      width: 2px;
+      height: 10px;
+      background: #2e1d18;
+      transform: translateX(-50%);
+      border-radius: 999px;
+    }
+    .label {
+      width: 72%;
+      height: 54%;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      text-align: center;
+      padding: 6px;
+      color: #2b2320;
+    }
+    .label-name {
+      font-family: "DM Serif Display", serif;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .label-notes {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+    .label-badge {
+      margin-top: 6px;
+      font-size: 0.55rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255,211,157,0.3);
+      border: 1px solid rgba(173,117,64,0.5);
+    }
+    .candle-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .meta-pill {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(11,13,20,0.8);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+    .meta-value {
+      font-size: 0.8rem;
+      color: #f1f0ee;
+    }
+
+    /* Bestsellers section */
+    .section {
+      padding: 26px 0 18px;
+    }
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 12px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+    .card-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: var(--muted);
+    }
+    .card-notes {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .price {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* How it works / CTA */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+    }
+    .list li {
+      display: flex;
+      gap: 8px;
+    }
+    .list li span {
+      margin-top: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .panel {
+      background: linear-gradient(135deg, rgba(242,179,111,0.12), rgba(19,20,32,0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(242,179,111,0.5);
+      padding: 12px 14px 14px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+    .panel strong {
+      color: var(--text);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 22px;
+      padding: 14px 0 20px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner,
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 30px;
+      }
+      .nav {
+        display: none;
+      }
+      .site-header {
+        position: static;
+        background: linear-gradient(to bottom, rgba(5,6,10,1), rgba(5,6,10,0.8));
+      }
+      .hero-visual {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <div class="brand">
+            <div class="brand-mark"></div>
+            <div class="brand-text">
+              <div class="brand-name">Lumen &amp; Wick</div>
+              <div class="brand-tag">Small-batch candle studio</div>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="#bestsellers">Bestsellers</a>
+            <a href="#about">Our Process</a>
+            <a href="#contact">Wholesale</a>
+            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Request Line Sheet
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Clean-burning soy + coconut wax • Wood wicks • Hand-poured in small batches
+            </div>
+            <h1>Elevated <span class="accent">candle collections</span> for modern spaces.</h1>
+            <p class="hero-lead">
+              Build a candle line that feels intentional, not generic. Thoughtful scent profiles, clean ingredients,
+              and packaging that actually matches your brand.
+            </p>
+            <div class="hero-row">
+              <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Talk About Your Candle Line
+              </button>
+              <span class="hero-note"><span></span> Typical minimums start at 24 units per scent.</span>
+            </div>
+            <div class="hero-perks">
+              <div class="perk">
+                <div class="perk-dot"></div>
+                Custom scent curation
+              </div>
+              <div class="perk">
+                <div class="perk-dot"></div>
+                Label + packaging guidance
+              </div>
+              <div class="perk">
+                <div class="perk-dot"></div>
+                Wholesale & white-label options
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="candle-card">
+              <div class="candle-glow"></div>
+              <div class="jar">
+                <div class="jar-inner">
+                  <div class="flame"></div>
+                  <div class="wick"></div>
+                  <div class="label">
+                    <div class="label-name">Golden Hour</div>
+                    <div class="label-notes">Amber • Vanilla Bean • Smoked Cedar</div>
+                    <div class="label-badge">10 oz • Wood Wick • Approx. 50 hrs</div>
+                  </div>
+                </div>
+              </div>
+              <div class="candle-meta">
+                <div class="meta-pill">
+                  <div class="meta-label">Wax Blend</div>
+                  <div class="meta-value">Soy–coconut, phthalate-free fragrances</div>
+                </div>
+                <div class="meta-pill">
+                  <div class="meta-label">Ideal For</div>
+                  <div class="meta-value">Boutiques, spas, home brands</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="bestsellers">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title">Bestselling scent families</div>
+            <div class="section-sub">A sample of profiles that consistently perform well in retail + online.</div>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <div class="card-top">
+                <div class="card-name">Golden Hour</div>
+                <div class="card-tag">Warm • Cozy</div>
+              </div>
+              <div class="card-notes">Amber, vanilla bean, smoked cedar, and a hint of bergamot. Our most requested “comfort” scent.</div>
+              <div class="card-meta">
+                <span class="price">$24 / 10 oz</span>
+                <span>Perfect for: home goods boutiques</span>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <div class="card-name">Slate &amp; Smoke</div>
+                <div class="card-tag">Masculine • Sophisticated</div>
+              </div>
+              <div class="card-notes">Tonka, leather, oud, and smoked birch. Great for barbershops, studios, and modern retail.</div>
+              <div class="card-meta">
+                <span class="price">$24 / 10 oz</span>
+                <span>Perfect for: barbers, lounges</span>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <div class="card-name">Laundry Day</div>
+                <div class="card-tag">Fresh • Clean</div>
+              </div>
+              <div class="card-notes">Cotton, ozone, white tea, and light musk. A clean-sheets vibe without being sharp or soapy.</div>
+              <div class="card-meta">
+                <span class="price">$22 / 9 oz</span>
+                <span>Perfect for: spas, salons</span>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-top">
+                <div class="card-name">Greenhouse</div>
+                <div class="card-tag">Herbal • Earthy</div>
+              </div>
+              <div class="card-notes">Fig leaf, tomato vine, basil, and moss. For plant shops, florists, and design-minded brands.</div>
+              <div class="card-meta">
+                <span class="price">$24 / 10 oz</span>
+                <span>Perfect for: plant & home shops</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title">How we work with you</div>
+            <div class="section-sub">From first idea to finished, shelf-ready candles.</div>
+          </div>
+          <div class="two-col">
+            <ul class="list">
+              <li>
+                <span></span>
+                <div>
+                  <strong>1. Quick intro call.</strong><br />
+                  We talk through your brand, price point, target customer, and what you want your candle line to feel like.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>2. Scent direction & samples.</strong><br />
+                  We suggest scent families and pour test samples for you to burn in your own space.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>3. Packaging & details.</strong><br />
+                  Jar style, wax color, label layout, and any small touches that make it feel like your brand.
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>4. Production & reorder rhythm.</strong><br />
+                  We set realistic timelines and reorder minimums so you can stay in stock without overbuying.
+                </div>
+              </li>
+            </ul>
+            <div class="panel" id="contact">
+              <strong>Ready to talk through ideas?</strong>
+              <div>
+                Share a few details about your brand and ideal candle line, and we’ll follow up with a simple line sheet and next steps.
+              </div>
+              <div>
+                <strong>Email:</strong> hello@lumenandwick.co<br />
+                <strong>Ideal order size:</strong> Starting at 24–48 units per scent<br />
+                <strong>Lead times:</strong> Generally 2–4 weeks depending on volume + components
+              </div>
+              <div>
+                Prefer direct contact? Call or text:<br />
+                <strong>(919) 555-0142</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <span>© <span id="year"></span> Lumen &amp; Wick Candle Studio</span>
+          <span>Clean-burning candles • Hand-poured in small batches</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
