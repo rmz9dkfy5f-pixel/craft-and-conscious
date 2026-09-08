@@ -1,0 +1,133 @@
+{
+  "active_profile": "web_application",
+  "facts": {
+    "ai_use": {
+      "evidence": [],
+      "state": "derived",
+      "value": false
+    },
+    "authentication": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "browser_ui": {
+      "evidence": [
+        "v3/index.html"
+      ],
+      "state": "derived",
+      "value": true
+    },
+    "container_use": {
+      "evidence": [],
+      "state": "derived",
+      "value": false
+    },
+    "data_sensitivity": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "database": {
+      "evidence": [],
+      "state": "derived",
+      "value": false
+    },
+    "deployment_state": {
+      "evidence": [],
+      "state": "derived",
+      "value": "not_detected"
+    },
+    "git_repository": {
+      "evidence": [
+        ".git present"
+      ],
+      "state": "derived",
+      "value": true
+    },
+    "languages": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "package_manager": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "project_category": {
+      "evidence": [
+        "explicit --profile selection in applied plan"
+      ],
+      "state": "confirmed",
+      "value": "web_application"
+    },
+    "public_exposure": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "repository_hosting": {
+      "evidence": [
+        ".git/config"
+      ],
+      "state": "derived",
+      "value": "github"
+    },
+    "risk_level": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "runtime": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    },
+    "signals": {
+      "evidence": [
+        ".agents/skills/starter-production-readiness/skill.md",
+        "ai/prompts/v34_agent_task_prompt.md",
+        "docs/governance/phase_gates.md",
+        "docs/governance/project_classification.md",
+        "docs/governance/rollback_plan.md",
+        "v3/index.html"
+      ],
+      "state": "derived",
+      "value": [
+        "docs",
+        "html",
+        "prompt",
+        "web"
+      ]
+    },
+    "supported_platforms": {
+      "evidence": [],
+      "state": "unknown",
+      "value": null
+    }
+  },
+  "recommendation": {
+    "ambiguous": false,
+    "confidence": "medium",
+    "profile_id": "web_application",
+    "ranked": [
+      {
+        "matched_signals": [
+          "html",
+          "web"
+        ],
+        "profile_id": "web_application",
+        "score": 265
+      },
+      {
+        "matched_signals": [
+          "docs"
+        ],
+        "profile_id": "docs_only",
+        "score": 110
+      }
+    ]
+  },
+  "schema_version": "1.0"
+}
