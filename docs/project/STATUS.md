@@ -4,16 +4,23 @@
 
 Static website, 8 versioned iterations (`v1`-`v6`, `v8`, `v9`; no `v7`), each a standalone
 `index.html`; `v9` (current) also has `images/`. No build system, no backend, no CI, no confirmed
-deployment target. AntBrainOS Project Starter Kit v3.10.0 (`web_application` profile, governance
-layer only, no optional modules) adopted, **merged into `main`, and pushed** (2026-09-09, owner
-authorized, fast-forward `4a2e6b5` -> `ca09f8d`). The Snapshot Contract for `DESKTOP-8JF1MKA` is
-now fully resolved (destination, naming/exclusions/verification/checksum/retention/restore) and
-its `Primary\` clone kept in sync.
+deployment target. AntBrainOS Project Starter Kit v3.10.0 (`web_application` profile) adopted and
+merged into `main` (2026-09-09). As of 2026-09-16, 10 optional governance modules are enabled:
+`threat_model`, `security_requirements`, `dependency_risk`, `secret_scan`, `license_policy`,
+`browser_matrix`, `accessibility`, `web_performance`, `seo`, `release_metadata` — selected from a
+curated review of all 39 `web_application` optional modules, filtered to what fits a static site
+with no backend/build/deployment target. The Snapshot Contract for `DESKTOP-8JF1MKA` is fully
+resolved and its `Primary\` clone kept in sync.
 
 ## Last Updated
 
-2026-09-15 — session-end closeout (no tag this session — governance-only work, matches the
-2026-09-08 precedent of reserving tags for actual site releases).
+2026-09-16 — enabled 10 Starter Kit optional modules (commit `3814d7f`, pushed). `validate` found 5
+pre-existing `owned_file_drift` findings unrelated to the module work (governance docs edited with
+real facts since 2026-09-08 had never had their manifest-recorded checksums re-baselined) — fixed
+by marking those 5 files `project`-owned in `.starter-kit/manifest.json`; `validate` now PASS, 0
+findings. No tag this session — declined again (see `DECISION_LOG.md`). Owner-confirmed next task:
+fill the 10 new module policy docs with real project-specific content (currently kit-template
+boilerplate).
 
 ## Working
 

@@ -83,3 +83,36 @@
 - Risks: none identified. Two legacy folders (`Branch1\`, `Branch2\`) of unknown origin found at
   the same destination — owner decided 2026-09-15 to leave them untouched; not a risk to this
   repo.
+
+## 2026-09-16 — chore: enable 10 Starter Kit governance modules (web_application)
+
+## Summary
+
+- Enable `threat_model`, `security_requirements`, `dependency_risk`, `secret_scan`,
+  `license_policy`, `browser_matrix`, `accessibility`, `web_performance`, `seo`, and
+  `release_metadata` via the pinned v3.10.0 kit CLI (`module plan` -> `module enable --apply`, one
+  at a time in dependency order). Also re-baseline ownership of 5 pre-existing governance docs from
+  `starter_kit` to `project` in `.starter-kit/manifest.json`.
+
+## Description
+
+- What changed: 10 new policy docs under `docs/security/` and `docs/operations/`, plus
+  `docs/release/RELEASE_EVIDENCE.md` and `.starter-kit/release-manifest.json`. `.starter-kit/
+  manifest.json` and `capability-state.json` updated to record all 10 as enabled/configured.
+  Ownership of `docs/governance/REPOSITORY_HANDOFF_CONFIG.md` and `docs/project/{STATUS,
+  COMMIT_NOTES,CONTEXT,DECISION_LOG}.md` changed from `starter_kit` to `project` in the manifest.
+- Why: owner selected these 10 from a read-only review of all 39 optional `web_application`
+  modules (8 mechanically blocked by missing repo evidence — no database/service/cloud/CI
+  validation contract; the rest filtered to what fits a static HTML site with no backend, build,
+  or deployment target). The ownership re-baseline was needed because `validate` flagged those 5
+  files as drifted from their template checksum — they were legitimately filled with real facts
+  across the 2026-09-08/09/15 sessions, but the manifest was never updated to reflect that, so
+  `validate` had been silently `BLOCKED` since 2026-09-08 without any prior session catching it.
+- Validation: `module plan`/`module enable --apply` PASS for all 10 (fresh plan ID re-read after
+  each apply, since applying one module invalidates plan IDs computed for the rest — each
+  module's plan ID hashes the whole repo tree). `validate`: BLOCKED (5 owned_file_drift findings)
+  before the ownership fix, PASS (0 findings, all 6 layers) after. `quality --execute`:
+  PASS_WITH_WARNINGS (expected — no executable checks configured, same as every prior session).
+  `git status` confirmed zero paths under `v1`-`v9`/`images` touched, both before and after.
+- Risks: none identified. No CI workflows or live automation were generated — each module enable
+  created documentation only.
