@@ -1,0 +1,12 @@
+{
+  "artifacts": [],
+  "checksums": [],
+  "compatibility": [],
+  "evidence": [],
+  "migration_notes": [],
+  "publishing_authorized": false,
+  "release_status": "candidate",
+  "schema_version": "1.0",
+  "source_revision": null,
+  "version_source": ".starter-kit/version-state.json"
+}

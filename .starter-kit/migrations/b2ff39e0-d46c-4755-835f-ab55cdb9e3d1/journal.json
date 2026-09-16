@@ -1,0 +1,41 @@
+{
+  "approval": {
+    "apply_flag": true,
+    "approved_by": null,
+    "expected_plan_id": "9355edb1c8656f543a2346eef6995ee2cf4b25431ff6c0562424895607384f0f"
+  },
+  "changes": [
+    {
+      "action": "created",
+      "after_sha256": "f794163af61a4ff98e77fb985d23b5082bb35550a4c4e819ddffd933ff03192c",
+      "backup": null,
+      "before_sha256": null,
+      "ownership": "starter_kit",
+      "path": "docs/security/threat_model.md"
+    },
+    {
+      "action": "modified",
+      "after_sha256": "15aa9d780794d0da8994a159deff66a3cb85dd90cadd42af9ae4c936457f0281",
+      "backup": ".starter-kit/migrations/b2ff39e0-d46c-4755-835f-ab55cdb9e3d1/backup/.starter-kit/capability-state.json",
+      "before_sha256": "cfc6ad328aaa77d8bcd94e52e64db55e2c1325a726ea99131e4ae1dd6da9b685",
+      "ownership": "generated",
+      "path": ".starter-kit/capability-state.json"
+    },
+    {
+      "action": "modified",
+      "after_sha256": "9328d1687a001915504dfc99f70566e3844282411b124b8807e05b1728d3549f",
+      "backup": ".starter-kit/migrations/b2ff39e0-d46c-4755-835f-ab55cdb9e3d1/backup/.starter-kit/manifest.json",
+      "before_sha256": "290f99043ec781fe9f3a1147c86c0e3ca77af05e86b0016b9dc3e85a3756d0ad",
+      "ownership": "generated",
+      "path": ".starter-kit/manifest.json"
+    }
+  ],
+  "completed_at": "2026-09-16T08:15:34.136317+00:00",
+  "conflicts": [],
+  "kind": "module-enable",
+  "plan_id": "9355edb1c8656f543a2346eef6995ee2cf4b25431ff6c0562424895607384f0f",
+  "run_id": "b2ff39e0-d46c-4755-835f-ab55cdb9e3d1",
+  "schema_version": "1.0",
+  "started_at": "2026-09-16T08:15:34.123407+00:00",
+  "status": "completed"
+}

@@ -27,7 +27,18 @@
     "v34-production-readiness",
     "v34-context-eval-loop"
   ],
-  "enabled_modules": [],
+  "enabled_modules": [
+    "accessibility",
+    "browser_matrix",
+    "dependency_risk",
+    "license_policy",
+    "release_metadata",
+    "secret_scan",
+    "security_requirements",
+    "seo",
+    "threat_model",
+    "web_performance"
+  ],
   "files": [
     {
       "modules": [],
@@ -155,7 +166,7 @@
       "path": ".starter-kit/manifest.json",
       "profiles": [],
       "required": true,
-      "sha256": "173148e726289b13ab279b0f2c35a10fa2b51c2b42c583137c84f23e1b54cd86"
+      "sha256": "c96ca7b3e2a1c4d43ce8adeccdf32abece605f28d0d8bfa9f01de9ac265fb612"
     },
     {
       "modules": [],
@@ -447,7 +458,7 @@
     },
     {
       "modules": [],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/governance/REPOSITORY_HANDOFF_CONFIG.md",
       "profiles": [],
       "required": true,
@@ -503,7 +514,7 @@
     },
     {
       "modules": [],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/project/COMMIT_NOTES.md",
       "profiles": [],
       "required": true,
@@ -511,7 +522,7 @@
     },
     {
       "modules": [],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/project/CONTEXT.md",
       "profiles": [],
       "required": true,
@@ -519,7 +530,7 @@
     },
     {
       "modules": [],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/project/DECISION_LOG.md",
       "profiles": [],
       "required": true,
@@ -551,11 +562,121 @@
     },
     {
       "modules": [],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/project/STATUS.md",
       "profiles": [],
       "required": true,
       "sha256": "12262d1f0192e6aa5576de9c4940151ae58090c751746033c6fe0dd34dc68571"
+    },
+    {
+      "modules": [
+        "threat_model"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/security/threat_model.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "f794163af61a4ff98e77fb985d23b5082bb35550a4c4e819ddffd933ff03192c"
+    },
+    {
+      "modules": [
+        "security_requirements"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/security/security_requirements.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "202aa487014040d9378352d489adc521c909d4514849b8fd64d4338a7d558cbe"
+    },
+    {
+      "modules": [
+        "dependency_risk"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/security/dependency_risk.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "8965be2f3fb92d73b3b2ba1e7d753f4fdd93fd2d98279d2b3731c52bd76b26a7"
+    },
+    {
+      "modules": [
+        "secret_scan"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/security/secret_scan.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "b0182943ca9f247c9b8e04a75448ed43dfa694dab5eaceeee2045750fd3c7ace"
+    },
+    {
+      "modules": [
+        "license_policy"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/security/license_policy.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "433827a000bc8ca5e9af5aff42ddeaa17678e4968873545bda96484c024eee09"
+    },
+    {
+      "modules": [
+        "browser_matrix"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/operations/BROWSER_MATRIX_POLICY.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "3b03284a7566064f215bc83ae54bc431b4a1ce329b7b03bd5f99d1f912527a40"
+    },
+    {
+      "modules": [
+        "accessibility"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/operations/ACCESSIBILITY_POLICY.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "f8b4c7dfc621cfa8e3768965be50f74c8b35a0b748d8949599a1b47b50e3c9f3"
+    },
+    {
+      "modules": [
+        "web_performance"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/operations/WEB_PERFORMANCE_POLICY.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "5899c9ee264642727af7067459f7d2c58979a92a654ad60811f5d08be1480132"
+    },
+    {
+      "modules": [
+        "seo"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/operations/SEO_POLICY.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "ce1f3c64bc0358fcb8df65ac508ad36f1d05477a4e85c895895abfa163c6988e"
+    },
+    {
+      "modules": [
+        "release_metadata"
+      ],
+      "ownership": "generated",
+      "path": ".starter-kit/release-manifest.json",
+      "profiles": [],
+      "required": true,
+      "sha256": "55675e428e66d23244e139e709c40daa319d8438669199bd43720c2d7b565768"
+    },
+    {
+      "modules": [
+        "release_metadata"
+      ],
+      "ownership": "starter_kit",
+      "path": "docs/release/RELEASE_EVIDENCE.md",
+      "profiles": [],
+      "required": true,
+      "sha256": "c0ad8ebbe39c7f6d465f7bb4f3e871b17a9aab25430cf76039ad9add7be73c43"
     }
   ],
   "installation_mode": "migrated",

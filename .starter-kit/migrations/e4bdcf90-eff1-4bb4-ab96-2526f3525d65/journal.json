@@ -1,0 +1,49 @@
+{
+  "approval": {
+    "apply_flag": true,
+    "approved_by": null,
+    "expected_plan_id": "b52f36b73b9933c96b03efc1c2f977a72aa42ea2140bd1c7d33b48ea0deb5c46"
+  },
+  "changes": [
+    {
+      "action": "created",
+      "after_sha256": "55675e428e66d23244e139e709c40daa319d8438669199bd43720c2d7b565768",
+      "backup": null,
+      "before_sha256": null,
+      "ownership": "generated",
+      "path": ".starter-kit/release-manifest.json"
+    },
+    {
+      "action": "created",
+      "after_sha256": "c0ad8ebbe39c7f6d465f7bb4f3e871b17a9aab25430cf76039ad9add7be73c43",
+      "backup": null,
+      "before_sha256": null,
+      "ownership": "starter_kit",
+      "path": "docs/release/RELEASE_EVIDENCE.md"
+    },
+    {
+      "action": "modified",
+      "after_sha256": "eddac7161f5cb477dc828693cbf84885c44e1fbc77093f0ef4137b050c01f1e0",
+      "backup": ".starter-kit/migrations/e4bdcf90-eff1-4bb4-ab96-2526f3525d65/backup/.starter-kit/capability-state.json",
+      "before_sha256": "f00d1ccd341cb0559e2b21b9af1bf5bc84967d3a2ce0d356e7aca3df70569c73",
+      "ownership": "generated",
+      "path": ".starter-kit/capability-state.json"
+    },
+    {
+      "action": "modified",
+      "after_sha256": "7d18dc5e0ddd76b4868ab593a63f0ea0eb8237684e7a2d95ff5b92b54dae4858",
+      "backup": ".starter-kit/migrations/e4bdcf90-eff1-4bb4-ab96-2526f3525d65/backup/.starter-kit/manifest.json",
+      "before_sha256": "8b9451e6a694c444bb1793c5c3a6bb5acf86ff1a59c55fe7ed055005f968837a",
+      "ownership": "generated",
+      "path": ".starter-kit/manifest.json"
+    }
+  ],
+  "completed_at": "2026-09-16T09:13:14.339375+00:00",
+  "conflicts": [],
+  "kind": "module-enable",
+  "plan_id": "b52f36b73b9933c96b03efc1c2f977a72aa42ea2140bd1c7d33b48ea0deb5c46",
+  "run_id": "e4bdcf90-eff1-4bb4-ab96-2526f3525d65",
+  "schema_version": "1.0",
+  "started_at": "2026-09-16T09:13:14.325181+00:00",
+  "status": "completed"
+}

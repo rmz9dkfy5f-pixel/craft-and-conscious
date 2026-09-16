@@ -2,7 +2,7 @@
   "capabilities": [
     {
       "id": "accessibility",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": "browser_matrix",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -122,7 +122,7 @@
     },
     {
       "id": "dependency_risk",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -177,7 +177,7 @@
     },
     {
       "id": "license_policy",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -252,7 +252,7 @@
     },
     {
       "id": "release_metadata",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -277,7 +277,7 @@
     },
     {
       "id": "secret_scan",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -287,12 +287,12 @@
     },
     {
       "id": "security_requirements",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
       "id": "seo",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -312,7 +312,7 @@
     },
     {
       "id": "threat_model",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     },
     {
@@ -332,7 +332,7 @@
     },
     {
       "id": "web_performance",
-      "state": "configured",
+      "state": "not_applicable",
       "waiver": null
     }
   ],

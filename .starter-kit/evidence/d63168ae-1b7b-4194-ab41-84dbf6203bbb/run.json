@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-09-16T09:19:54.702107+00:00",
+  "model_usage": {
+    "model": null,
+    "status": "not_recorded_for_non_ai_or_unreported_run",
+    "surface": null
+  },
+  "run_id": "d63168ae-1b7b-4194-ab41-84dbf6203bbb",
+  "run_type": "quality",
+  "schema_version": "1.0",
+  "started_at": "2026-09-16T09:19:54.702107+00:00",
+  "status": "PASS_WITH_WARNINGS"
+}
