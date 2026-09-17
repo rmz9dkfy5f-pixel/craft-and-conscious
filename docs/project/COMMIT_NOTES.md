@@ -151,3 +151,35 @@
   touched.
 - Risks: none identified. This session's own accessibility findings (missing `:focus-visible`
   states, no keyboard/contrast verification ever performed) are the owner-confirmed next task.
+
+## 2026-09-17 (later same day) — fix: WCAG 2.2 AA accessibility gaps in v9/index.html
+
+## Summary
+
+- Ran a live headless-Chromium (Playwright) audit of `v9/index.html` against WCAG 2.2 AA:
+  keyboard operability/focus order (36 focusable elements), focus visibility, and pixel-sampled
+  color contrast (9 real rendered text/background locations). Fixed the 2 real contrast failures
+  and 1 real modal-dialog gap the audit found; corrected an earlier unverified assumption about
+  missing focus-visible styling that live testing disproved.
+
+## Description
+
+- What changed: `v9/index.html` — `--muted` token `#8c7a69` -> `#7b6b5c` (fixes 3.66:1-4.12:1 ->
+  4.56:1-5.12:1 across subtitles/nav-links/footer/product-notes); `.btn-primary` text `#26160b` ->
+  `#000` (fixes 4.22:1 -> 5.07:1-11.02:1 across its gradient background); cart dialog
+  (`role="dialog" aria-modal="true"`) gained real modal keyboard behavior — focus moves to the
+  close button on open, Tab/Shift+Tab is trapped inside the panel while open, Escape closes it and
+  returns focus to whichever control opened it. `docs/operations/ACCESSIBILITY_POLICY.md` updated
+  to record verified facts in place of the prior session's untested assumption (`.btn`/`.mood-btn`/
+  `.cart-line-qty-btn` do receive a visible focus indicator by default; that part of the prior
+  entry was wrong).
+- Why: owner-confirmed next task from the same-day earlier closeout.
+- Validation: live-tested, not just read from CSS — pixel-sampled contrast on 9 real page
+  locations (all now pass AA), full 36-element keyboard Tab-order pass (0 issues, 0 elements
+  without visible focus), and a dedicated cart-dialog test confirming focus-on-open, forward trap,
+  backward wrap, and Escape-plus-focus-return, all via genuine keyboard interaction with 0
+  console/page errors. `starter_kit.py validate`: PASS, 0 findings (docs already `project`-owned,
+  no new drift). `quality --execute`: PASS_WITH_WARNINGS (expected).
+- Risks: none identified. Not yet run: an automated accessibility scanner (axe-core/Lighthouse)
+  for broader coverage, and mobile/touch-viewport testing — both recorded as open next-task
+  candidates rather than silently skipped.

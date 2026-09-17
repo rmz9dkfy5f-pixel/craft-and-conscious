@@ -21,11 +21,21 @@ Use this file for durable project context that agents need across sessions.
   `accessibility`, `web_performance`, `seo`, `release_metadata`); their policy docs were filled
   with real project content 2026-09-17. No CI/build automation exists — the modules are
   documentation-only.
-- Accessibility target: WCAG 2.2 AA (confirmed with owner 2026-09-17) — not yet verified against
-  (no keyboard/focus-order or color-contrast pass has been run).
+- Accessibility target: WCAG 2.2 AA (confirmed with owner 2026-09-17). Verified 2026-09-17 (later
+  same day) via a live headless-Chromium script (Playwright, installed only in a scratch
+  directory, never a project dependency): keyboard operability/focus order, focus visibility, and
+  pixel-sampled color contrast for `v9/index.html`. Two real contrast failures and one real
+  modal-dialog gap were found and fixed. Not yet run: an automated scanner (axe/Lighthouse) or
+  mobile/touch-viewport testing.
 - Browser support: last 2 major versions of Chrome, Firefox, Safari, Edge; no Internet Explorer
   (confirmed with owner 2026-09-17).
 
 ## Repeated Corrections
 
-Add facts here when an agent makes the same mistake more than once.
+- **Verify accessibility claims live before writing them into a policy doc — don't infer from
+  reading CSS alone.** The 2026-09-17 session first wrote that `.btn`/`.mood-btn`/
+  `.cart-line-qty-btn` "lack :focus-visible styling" based on not seeing a dedicated CSS rule for
+  them. A live keyboard test the same day showed this was wrong — the browser's own default
+  outline renders visibly for all of them. The real, more significant gap (no focus trap in the
+  cart dialog) was only found by actually testing, not by reading the stylesheet. Prefer live
+  verification over CSS inspection for any accessibility claim in this repo's docs.

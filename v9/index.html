@@ -18,7 +18,7 @@
       --bg-alt: #fff9f3;
       --ink: #1a130d;
       --ink-soft: #5f4e40;
-      --muted: #8c7a69;
+      --muted: #7b6b5c;
       --accent: #b46a3c;
       --accent-soft: rgba(180, 106, 60, 0.12);
       --accent-dark: #8c4e29;
@@ -293,7 +293,7 @@
 
     .btn-primary {
       background: linear-gradient(135deg, #b46a3c, #e6b27b);
-      color: #26160b;
+      color: #000;
       border-color: rgba(255, 255, 255, 0.3);
     }
 
@@ -2114,18 +2114,55 @@
       renderCart();
     }
 
-    function openCart() {
-      if (cartBackdrop) {
-        cartBackdrop.classList.add("is-visible");
-        cartBackdrop.removeAttribute("aria-hidden");
+    const cartPanel = document.querySelector(".cart-panel");
+    let cartOpenTrigger = null;
+
+    function getCartFocusable() {
+      if (!cartPanel) return [];
+      return Array.from(
+        cartPanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+      ).filter(el => el.offsetParent !== null);
+    }
+
+    function trapCartFocus(event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCart();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = getCartFocusable();
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     }
 
+    function openCart(trigger) {
+      if (!cartBackdrop) return;
+      cartOpenTrigger = trigger || document.activeElement;
+      cartBackdrop.classList.add("is-visible");
+      cartBackdrop.removeAttribute("aria-hidden");
+      document.addEventListener("keydown", trapCartFocus);
+      const focusable = getCartFocusable();
+      if (focusable.length > 0) focusable[0].focus();
+    }
+
     function closeCart() {
-      if (cartBackdrop) {
-        cartBackdrop.classList.remove("is-visible");
-        cartBackdrop.setAttribute("aria-hidden", "true");
+      if (!cartBackdrop) return;
+      cartBackdrop.classList.remove("is-visible");
+      cartBackdrop.setAttribute("aria-hidden", "true");
+      document.removeEventListener("keydown", trapCartFocus);
+      if (cartOpenTrigger && typeof cartOpenTrigger.focus === "function") {
+        cartOpenTrigger.focus();
       }
+      cartOpenTrigger = null;
     }
 
     cartToggleButtons.forEach(btn => {
@@ -2135,7 +2172,7 @@
         if (isVisible) {
           closeCart();
         } else {
-          openCart();
+          openCart(btn);
         }
       });
     });
