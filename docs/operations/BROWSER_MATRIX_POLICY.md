@@ -6,27 +6,40 @@ tooling it already uses or chooses to adopt.
 
 ## Supported matrix
 
-- The browsers this project supports, each with its supported version or version window (e.g.
-  "last 2 major versions", not just a name with no bound).
-- The devices and viewports this project supports - phone, tablet, desktop breakpoints - stated as
-  ranges a reviewer can check a screenshot against, not implied by a CSS framework's defaults.
-- The operating systems this project's browser/device combinations are verified on, where that
-  differs from the browser vendor's own default platform.
+- **Browsers:** last 2 major versions of Chrome, Firefox, Safari, and Edge — evergreen,
+  auto-updating browsers only. Confirmed with the owner 2026-09-17. No Internet Explorer support
+  (any version) — the site already uses features IE never implemented (CSS custom properties,
+  `backdrop-filter`, `clamp()`, CSS Grid, `:focus-visible`), so this names an existing fact rather
+  than introducing a new restriction.
+- **Devices/viewports:** three breakpoints, matching `v9/index.html`'s own CSS exactly:
+  - Desktop: > 960px — full multi-column grid (4-column product grid, 3-column collections/journal
+    grids).
+  - Tablet: 768px–960px — condensed grids (3-column product grid, 2-column collections/journal),
+    hero switches to a single stacked column.
+  - Mobile: < 768px, with a further breakpoint at 520px — top nav collapses to a hamburger toggle
+    at 768px; product grid drops to 2 columns at 768px and 1 column at 520px.
+- **Operating systems:** none verified separately from the browser matrix above — no OS-specific
+  feature is used; coverage follows whichever OS each listed evergreen browser runs on (Windows,
+  macOS, iOS, Android).
 
 ## Verification practice
 
-- Behavior is verified against every entry in the matrix above, not against whichever browser a
-  developer happens to be using - a bug that only reproduces in one matrix entry is still a bug in
-  that entry.
-- Verification may be manual or automated; what matters is that it runs against the stated matrix,
-  on a stated cadence relative to release, not once at project start and never again.
-- A change that narrows the matrix (a browser dropped) is itself a decision, recorded here with a
-  reason, not a silent contraction of what "supported" means.
+- Manual only: resize a browser window through the three stated breakpoints and load the current
+  site (`v9/index.html`) in at least one Chromium-based browser and Safari specifically before any
+  content release — `backdrop-filter` and `-webkit-background-clip: text` (both used in this
+  file's CSS) have a history of needing WebKit-specific handling.
+- No automated cross-browser or visual-regression tool is configured — there is no CI for this
+  repository (`docs/governance/REPOSITORY_HANDOFF_CONFIG.md`'s Validation Contract: no
+  install/test/build tooling exists).
+- Cadence: before each content release (a new version folder or a change to the current `v9`), not
+  on a calendar schedule.
 
 ## Known gaps
 
-- Any browser, device, or viewport combination this project deliberately does not support is
-  stated here, with the reason - an unstated gap reads as an oversight; a stated one is a decision.
+- Internet Explorer (any version) is not supported, and cannot be without removing CSS features
+  already in production use.
+- No support commitment beyond "last 2 major versions" — an older evergreen-browser install (e.g.
+  a far-behind Firefox ESR) is not guaranteed to render correctly.
 
 ## What this module deliberately does not do
 

@@ -16,8 +16,15 @@ Use this file for durable project context that agents need across sessions.
 ## Known Constraints
 
 - Governance/Starter-Kit tooling must never modify `v1`-`v9`/`images/` site content.
-- No optional Starter Kit modules are enabled — deliberate scope choice (2026-09-08), not an
-  oversight.
+- 10 optional Starter Kit modules are enabled as of 2026-09-16 (`threat_model`,
+  `security_requirements`, `dependency_risk`, `secret_scan`, `license_policy`, `browser_matrix`,
+  `accessibility`, `web_performance`, `seo`, `release_metadata`); their policy docs were filled
+  with real project content 2026-09-17. No CI/build automation exists — the modules are
+  documentation-only.
+- Accessibility target: WCAG 2.2 AA (confirmed with owner 2026-09-17) — not yet verified against
+  (no keyboard/focus-order or color-contrast pass has been run).
+- Browser support: last 2 major versions of Chrome, Firefox, Safari, Edge; no Internet Explorer
+  (confirmed with owner 2026-09-17).
 
 ## Repeated Corrections
 

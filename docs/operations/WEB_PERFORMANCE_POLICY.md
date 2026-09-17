@@ -4,28 +4,33 @@ This module (`web_performance`) generates this policy. It runs no measurement an
 tool: the budget below is what this project's users actually experience, measured with whatever
 tooling this project already uses or chooses to adopt.
 
-## Performance budget
+## Performance Budget
 
-- Load and interactivity indicators a user would recognize as "fast" or "slow" - largest
-  contentful paint, interaction-to-next-paint, cumulative layout shift, time to first byte -
-  each with a stated numeric budget, not left as "should be fast."
-- A stated budget for shipped asset size, where that is the practical lever this project has over
-  the indicators above.
+Adopting the standard Core Web Vitals "good" thresholds as this project's stated target, since no
+site-specific alternative has previously been set:
 
-## Measurement practice
+- Largest Contentful Paint (LCP): < 2.5s
+- Interaction to Next Paint (INP): < 200ms
+- Cumulative Layout Shift (CLS): < 0.1
+- Time to First Byte (TTFB): < 0.8s
 
-- Measured at a point that reflects what a user experiences - a real or realistic network and
-  device condition, not a developer's local machine on a fast connection and empty cache.
-- Both lab measurement (consistent, repeatable, good for catching regressions) and field
-  measurement (real users, real conditions, good for knowing what actually happened) have a place;
-  which this project uses, and why, is stated rather than left implicit.
-- Measured on a stated cadence relative to release, not once at project start.
+**Asset size budget:** each version's `index.html` plus its 4 referenced images in `images/`
+should stay under 2MB transferred in total — there is no build/minification/compression step, so
+shipped size is exactly source size.
 
-## Regression handling
+## Measurement Practice
 
-- What happens when a budget is exceeded is stated in advance: block the release, waive with a
-  recorded reason, or track and revisit - whichever this project chooses, chosen before the
-  regression exists rather than decided in the moment it does.
+No lab or field measurement has been run against this site yet — a real, stated gap, not a passed
+check. Once a deployment target exists (none is configured today — see
+`docs/governance/PROJECT_CLASSIFICATION.md`), lab measurement (e.g. PageSpeed Insights/Lighthouse
+against the live URL) is the natural first step, since there is no CI to wire an automated lab run
+into. Field measurement (e.g. Chrome UX Report) is not available until the site has real traffic
+at a real URL.
+
+## Regression Handling
+
+**Track and revisit** — confirmed with the owner 2026-09-17. A budget overage is logged as a known
+item rather than blocking anything, since there is no release pipeline for it to block against.
 
 ## What this module deliberately does not do
 

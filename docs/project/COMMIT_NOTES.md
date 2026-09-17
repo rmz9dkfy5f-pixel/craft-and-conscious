@@ -116,3 +116,38 @@
   `git status` confirmed zero paths under `v1`-`v9`/`images` touched, both before and after.
 - Risks: none identified. No CI workflows or live automation were generated — each module enable
   created documentation only.
+
+## 2026-09-17 — docs: fill 10 module policy docs with real content, re-baseline ownership
+
+## Summary
+
+- Fill all 10 module policy docs enabled 2026-09-16 (`docs/security/{threat_model,
+  security_requirements,dependency_risk,secret_scan,license_policy}.md`, `docs/operations/
+  {BROWSER_MATRIX_POLICY,ACCESSIBILITY_POLICY,WEB_PERFORMANCE_POLICY,SEO_POLICY}.md`,
+  `docs/release/RELEASE_EVIDENCE.md`) with real, project-specific content, replacing kit-template
+  boilerplate. Re-baseline their ownership from `starter_kit` to `project` in
+  `.starter-kit/manifest.json`.
+
+## Description
+
+- What changed: all 10 files above rewritten with facts derived directly from `v9/index.html`
+  (zero third-party dependencies, zero secrets, static single-file build, inactive analytics
+  placeholder, non-functional "Pretend checkout"/newsletter form, 3 responsive breakpoints,
+  existing ARIA/semantic-HTML usage) plus 4 explicit owner decisions: WCAG 2.2 AA accessibility
+  target, evergreen-only browser matrix (last 2 versions of Chrome/Firefox/Safari/Edge, no IE11),
+  performance-regression handling (track and revisit, not blocking), and confirmation that all site
+  imagery/code is original and business-owned (no third-party licenses apply). Real gaps were
+  recorded explicitly rather than omitted — no keyboard/focus-order pass or color-contrast
+  measurement has ever been run, and several buttons (`.btn`, `.mood-btn`, `.cart-line-qty-btn`)
+  lack `:focus-visible` styling.
+- Why: owner-confirmed next task carried from the 2026-09-16 session (`HANDOFF_TO_CLAUDE.md`).
+- Validation: `starter_kit.py validate` went `BLOCKED` (10 fresh `owned_file_drift` findings — the
+  expected consequence of editing `starter_kit`-owned template files) immediately after the doc
+  edits, then `PASS` (0 findings, all 6 layers) after the ownership re-baseline, which used the
+  kit's own `sha256_file`/`json_text`/`_normalized_manifest_hash` functions to keep the manifest's
+  self-referential hash consistent (same method as the 2026-09-16 precedent). `quality --execute`:
+  PASS_WITH_WARNINGS (expected — no executable checks configured, same as every prior session).
+  `git status --porcelain=v1 --untracked-files=all` confirmed zero paths under `v1`-`v9`/`images/`
+  touched.
+- Risks: none identified. This session's own accessibility findings (missing `:focus-visible`
+  states, no keyboard/contrast verification ever performed) are the owner-confirmed next task.

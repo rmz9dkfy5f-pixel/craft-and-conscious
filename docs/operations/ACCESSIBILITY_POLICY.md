@@ -6,29 +6,44 @@ already uses or chooses to adopt.
 
 ## Conformance target
 
-- The WCAG version and level this project targets (e.g. WCAG 2.2 AA), stated explicitly - "we care
-  about accessibility" with no stated target is not a target a check can pass or fail against.
+**WCAG 2.2 Level AA** — confirmed with the owner 2026-09-17.
 
 ## What is checked
 
-- Semantic HTML and correct ARIA usage where semantic HTML alone is insufficient.
-- Keyboard operability: every interactive element reachable and operable without a mouse, in a
-  focus order that matches visual/reading order.
-- Focus visibility: a keyboard user can always see where focus currently is.
-- Color contrast at the stated conformance level, for text and for meaningful non-text UI.
-- Meaningful alternative text for non-decorative images, and correct labeling for form controls.
+- **Semantic HTML:** already used in `v9/index.html` — `<header>`, `<nav aria-label="Primary
+  navigation">`, `<main>`, `<footer>`, and `<article>` for product/collection/journal cards.
+- **ARIA usage beyond semantic HTML:** the cart panel uses `role="dialog" aria-modal="true"
+  aria-labelledby="cart-heading"`; the newsletter status message uses `aria-live="polite"`;
+  decorative imagery (the CSS background-image fills used for hero/product cards, which are not
+  real product photos) is marked `aria-hidden="true"`.
+- **Keyboard operability and focus order:** not yet formally verified end-to-end. All interactive
+  controls (nav links, filter `<select>` elements, mood buttons, add-to-cart buttons, the cart
+  toggle, the newsletter form) are native, keyboard-operable HTML elements by default, but no
+  keyboard-only pass has actually been performed and recorded.
+- **Focus visibility:** `:focus-visible` styling is explicitly defined for nav links, filter
+  `<select>`s, and the newsletter email input. It is **not** yet defined for `.btn`, `.mood-btn`,
+  or `.cart-line-qty-btn` beyond the browser's own default outline — see Known Exceptions.
+- **Color contrast:** not yet formally measured against this site's actual color tokens (e.g.
+  `--muted: #8c7a69` text on `--bg: #f6f1ea`) at the WCAG 2.2 AA thresholds.
+- **Alternative text:** the logo `<img>` has descriptive `alt` text
+  ("Craft Candle Company logo"). Product and hero imagery are CSS background-image fills marked
+  `aria-hidden="true"` rather than `<img>` elements needing alt text, since they are decorative
+  fills rather than the literal product photo for each item.
 
-## Verification practice
+## Verification Practice
 
-- An automated scan catches a meaningful subset of the checks above but not all of them - keyboard
-  operability and focus order specifically require a manual pass, not just a tool's PASS result.
-- Verification runs on a stated cadence relative to release, not once at project start.
+No automated scanner (axe, Lighthouse accessibility audit, etc.) has been run against this site
+yet — this is a real, unverified gap, not a passed check. Verification should run before each
+content release once adopted, not only once at project start.
 
-## Known exceptions
+## Known Exceptions
 
-- Any interface or interaction this project does not currently meet its stated conformance target
-  for is listed here, with the reason and, where applicable, a remediation plan - an unstated gap
-  reads as an oversight; a stated one is a decision.
+- Color-contrast conformance against WCAG 2.2 AA has not yet been measured for any version of this
+  site (`v1`–`v9`).
+- Full keyboard-operability and focus-order verification has not yet been performed.
+- `.btn`, `.mood-btn`, and `.cart-line-qty-btn` have no dedicated `:focus-visible` rule beyond the
+  browser default — a known, specific instance of the focus-visibility gap above, not yet
+  remediated.
 
 ## What this module deliberately does not do
 

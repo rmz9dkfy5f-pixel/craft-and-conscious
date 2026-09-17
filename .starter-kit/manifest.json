@@ -166,7 +166,7 @@
       "path": ".starter-kit/manifest.json",
       "profiles": [],
       "required": true,
-      "sha256": "c96ca7b3e2a1c4d43ce8adeccdf32abece605f28d0d8bfa9f01de9ac265fb612"
+      "sha256": "b159092a528fc431e7b07f2c280f2d693e4ef054d0debb2ad87e8700fbb480c1"
     },
     {
       "modules": [],
@@ -572,91 +572,91 @@
       "modules": [
         "threat_model"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/security/threat_model.md",
       "profiles": [],
       "required": true,
-      "sha256": "f794163af61a4ff98e77fb985d23b5082bb35550a4c4e819ddffd933ff03192c"
+      "sha256": "db76b673449358c4a74c296eb65b43bbc6c96669d75409624e8dd26f839f6f41"
     },
     {
       "modules": [
         "security_requirements"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/security/security_requirements.md",
       "profiles": [],
       "required": true,
-      "sha256": "202aa487014040d9378352d489adc521c909d4514849b8fd64d4338a7d558cbe"
+      "sha256": "8c11c25eca7916d9110fd8fbb51e45d3382c5cdc20782b13de119255c3634ce7"
     },
     {
       "modules": [
         "dependency_risk"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/security/dependency_risk.md",
       "profiles": [],
       "required": true,
-      "sha256": "8965be2f3fb92d73b3b2ba1e7d753f4fdd93fd2d98279d2b3731c52bd76b26a7"
+      "sha256": "6b3709571c14ff2162cda6fdcff46f845fdb6fcfa75c33627ac8d81dfbdbe7f1"
     },
     {
       "modules": [
         "secret_scan"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/security/secret_scan.md",
       "profiles": [],
       "required": true,
-      "sha256": "b0182943ca9f247c9b8e04a75448ed43dfa694dab5eaceeee2045750fd3c7ace"
+      "sha256": "afdef38fcad72fd551e665799e18545e3e697b33ebc19b1eaf24ce2b8975c553"
     },
     {
       "modules": [
         "license_policy"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/security/license_policy.md",
       "profiles": [],
       "required": true,
-      "sha256": "433827a000bc8ca5e9af5aff42ddeaa17678e4968873545bda96484c024eee09"
+      "sha256": "3cfacc9648be749bf735016a3037681c4b217957935978c405c424932e73bdea"
     },
     {
       "modules": [
         "browser_matrix"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/operations/BROWSER_MATRIX_POLICY.md",
       "profiles": [],
       "required": true,
-      "sha256": "3b03284a7566064f215bc83ae54bc431b4a1ce329b7b03bd5f99d1f912527a40"
+      "sha256": "bc5259fb4ed12ed67f0efc70931f33200857435fcdbf8e82f10377f6bac6aa86"
     },
     {
       "modules": [
         "accessibility"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/operations/ACCESSIBILITY_POLICY.md",
       "profiles": [],
       "required": true,
-      "sha256": "f8b4c7dfc621cfa8e3768965be50f74c8b35a0b748d8949599a1b47b50e3c9f3"
+      "sha256": "a5ab18562493ffdd612b2c00b5b8a7429e5a409310f2ff1d7b0487b2b3d4eec3"
     },
     {
       "modules": [
         "web_performance"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/operations/WEB_PERFORMANCE_POLICY.md",
       "profiles": [],
       "required": true,
-      "sha256": "5899c9ee264642727af7067459f7d2c58979a92a654ad60811f5d08be1480132"
+      "sha256": "de3b5f941673c94f268754033acadc9f4f806a4abdd9cfceb4cff5a2cf7d5a0d"
     },
     {
       "modules": [
         "seo"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/operations/SEO_POLICY.md",
       "profiles": [],
       "required": true,
-      "sha256": "ce1f3c64bc0358fcb8df65ac508ad36f1d05477a4e85c895895abfa163c6988e"
+      "sha256": "53b800085a23d9affbfb31d758de42c9a372af3c6d265c43f22b7a3986f94111"
     },
     {
       "modules": [
@@ -672,11 +672,11 @@
       "modules": [
         "release_metadata"
       ],
-      "ownership": "starter_kit",
+      "ownership": "project",
       "path": "docs/release/RELEASE_EVIDENCE.md",
       "profiles": [],
       "required": true,
-      "sha256": "c0ad8ebbe39c7f6d465f7bb4f3e871b17a9aab25430cf76039ad9add7be73c43"
+      "sha256": "305edc038aa65636166cfd3518dc8e90d84ec3ddcbd917bb53e7841387cac0f7"
     }
   ],
   "installation_mode": "migrated",
