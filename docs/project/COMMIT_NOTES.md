@@ -183,3 +183,33 @@
 - Risks: none identified. Not yet run: an automated accessibility scanner (axe-core/Lighthouse)
   for broader coverage, and mobile/touch-viewport testing — both recorded as open next-task
   candidates rather than silently skipped.
+
+## 2026-09-18 — fix: 3 Tier 1 issues found by automated axe-core scan
+
+## Summary
+
+- Ran axe-core 4.13.0 (WCAG 2.2 AA tags) against `v9/index.html` in both initial-load and
+  cart-open states, per the prior session's owner-confirmed next task. Fixed the 3 real Tier 1
+  violations it found; 0 violations remain in either state. This push is tagged `v0.1.1`.
+
+## Description
+
+- What changed: `v9/index.html` — converted the 3 filter `.filter-label` divs to
+  `<label for="...">` (Collection/Scent family/Price selects previously had no accessible name);
+  removed `aria-hidden="true"` from `.hero-card`, which contained a real, functional "Add to cart"
+  button reachable by keyboard but invisible to screen readers; changed `.journal-tag` color to
+  `var(--muted)` and `.eyebrow` color to `var(--ink-soft)` (not `--muted` — one of `.eyebrow`'s two
+  usage contexts renders against the hero's gradient background, where `--muted` alone still fails
+  AA; `--ink-soft` clears 4.5:1 in every context either class appears in).
+- Why: owner-confirmed next task from the 2026-09-17 closeout — broader automated coverage beyond
+  the manual pixel-sampling/keyboard script that session used.
+- Validation: axe-core re-scan after the fixes: 0 violations in both states (was 3 critical/serious
+  in the initial-load state, 2 in the cart-open state). Manual spot-check confirmed each `<select>`
+  now reports its correct accessible name via `el.labels`, and `.hero-card`'s `aria-hidden`
+  attribute is gone. Full-page screenshot confirmed no visual regression. `git status` confirmed
+  only `v9/index.html` changed.
+- Risks: none identified. Remaining axe "needs manual review" items (mostly a known axe limitation
+  with gradient/pseudo-element backgrounds, already cross-checked against the 9 locations verified
+  2026-09-17) and 2 items axe cannot detect at all (a `.mood-buttons` `aria-label` technicality; the
+  cart dialog's background not being marked `inert` while open) are carried forward as open,
+  non-blocking items — not silently dropped.

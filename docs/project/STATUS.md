@@ -15,6 +15,21 @@ The Snapshot Contract for `DESKTOP-8JF1MKA` is fully resolved and its `Primary\`
 
 ## Last Updated
 
+2026-09-18 — ran an automated axe-core 4.13.0 scan (WCAG 2.2 AA tags) against `v9/index.html` in
+both its initial-load and cart-open states, following up on the 2026-09-17 manual pass. Found and
+fixed 3 real Tier 1 issues the manual pass hadn't covered: the 3 filter `<select>` elements had no
+accessible name (converted their `.filter-label` divs to `<label for="...">`); `.hero-card` was
+`aria-hidden="true"` while containing a real, functional "Add to cart" button (removed the
+`aria-hidden`, confirmed not required by the shared `.reveal` animation class); and `.eyebrow`/
+`.journal-tag` text failed AA contrast with their own separate colors, distinct from the `--muted`
+token fixed 2026-09-17 (reassigned to existing `--ink-soft`/`--muted` tokens respectively, verified
+per actual rendered background context — `.eyebrow` needed `--ink-soft` specifically since one of
+its two usage contexts renders against the hero gradient, not a guaranteed-white card, where
+`--muted` alone would still have failed). Re-scan after the fixes: 0 violations in both states (was
+3/2). This push will be tagged `v0.1.1` (applied in the session-end super prompt's Section 7) — the
+first tagged release since `v0.1.0` and the first to mark an actual site-content change rather than
+governance-only work.
+
 2026-09-17 (later same day) — ran a live headless-Chromium (Playwright) audit of `v9/index.html`
 against the WCAG 2.2 AA target and fixed what it found: `--muted` text and `.btn-primary` text
 both measured below the 4.5:1 AA threshold at real rendered locations (pixel-sampled, not just
@@ -46,8 +61,6 @@ rather than reading the CSS.
 - No deployment target has been confirmed for this repo — this also blocks the SEO module's
   indexability requirements (`robots.txt`/sitemap/OG tags) and the web-performance module's field
   measurement, both recorded as open items in their respective policy docs.
-- No automated accessibility scanner (axe-core, Lighthouse) has been run — this session's pass was
-  a targeted script, not comprehensive coverage.
 - Mobile/touch-viewport accessibility (tap target sizing, screen-reader gestures) is untested —
   this session's pass used a 1280×900 desktop viewport only.
 - `Validation Contract` in `docs/governance/REPOSITORY_HANDOFF_CONFIG.md` has no real
@@ -61,11 +74,11 @@ rather than reading the CSS.
 
 ## Next Actions
 
-- Owner-confirmed (2026-09-17): run an automated accessibility scan (axe-core or Lighthouse) for
-  broader coverage than this session's targeted script provided.
+- Optional: test mobile/touch-viewport accessibility (still untested).
+- Optional: address the remaining axe-core "needs manual review" items (a `.mood-buttons`
+  `aria-label`-on-`div` technicality, and the cart dialog's background not being marked `inert`
+  while open — a real gap axe cannot detect, named in the 2026-09-17 scan report).
 - Owner: decide whether/when to establish a deployment target — several module docs are blocked on
   this.
-- Owner: decide whether/when to cut a version tag marking an actual site release.
-- Optional: test mobile/touch-viewport accessibility (untested this session).
 - Optional: fill in or explicitly retire the stale `MIGRATION_REPORT.md` template.
 - Optional: delete the now-redundant, fully-merged `starter-kit-v3.10-migration` branch.

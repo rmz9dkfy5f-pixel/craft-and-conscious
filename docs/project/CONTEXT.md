@@ -21,12 +21,16 @@ Use this file for durable project context that agents need across sessions.
   `accessibility`, `web_performance`, `seo`, `release_metadata`); their policy docs were filled
   with real project content 2026-09-17. No CI/build automation exists — the modules are
   documentation-only.
-- Accessibility target: WCAG 2.2 AA (confirmed with owner 2026-09-17). Verified 2026-09-17 (later
-  same day) via a live headless-Chromium script (Playwright, installed only in a scratch
-  directory, never a project dependency): keyboard operability/focus order, focus visibility, and
-  pixel-sampled color contrast for `v9/index.html`. Two real contrast failures and one real
-  modal-dialog gap were found and fixed. Not yet run: an automated scanner (axe/Lighthouse) or
-  mobile/touch-viewport testing.
+- Accessibility target: WCAG 2.2 AA (confirmed with owner 2026-09-17). Verified 2026-09-17 via a
+  live headless-Chromium script (Playwright, installed only in a scratch directory, never a
+  project dependency): keyboard operability/focus order, focus visibility, and pixel-sampled color
+  contrast for `v9/index.html` — 2 contrast failures and 1 modal-dialog gap found and fixed.
+  Verified again 2026-09-18 via an automated axe-core 4.13.0 scan (WCAG 2.2 AA tags, both
+  initial-load and cart-open states) — 3 further real Tier 1 issues found and fixed (missing
+  `<select>` labels, an `aria-hidden` container with a real focusable button, 2 more contrast
+  failures). 0 axe violations remain in either state as of `v0.1.1`. Still untested: mobile/touch
+  viewport. Still open (axe can't detect): the cart dialog's background isn't marked `inert` while
+  open.
 - Browser support: last 2 major versions of Chrome, Firefox, Safari, Edge; no Internet Explorer
   (confirmed with owner 2026-09-17).
 

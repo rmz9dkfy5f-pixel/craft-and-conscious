@@ -850,7 +850,7 @@
       font-size: 0.78rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(139, 120, 99, 0.9);
+      color: var(--muted);
     }
 
     .journal-title {
@@ -1128,7 +1128,7 @@
       font-size: 0.78rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(139, 120, 99, 0.95);
+      color: var(--ink-soft);
     }
 
     .muted {
@@ -1344,7 +1344,7 @@
             </div>
           </div>
 
-          <div class="hero-card reveal" aria-hidden="true">
+          <div class="hero-card reveal">
             <div class="hero-card-inner">
               <div class="hero-candle-img"></div>
               <div class="hero-card-meta">
@@ -1391,7 +1391,7 @@
             <div>
               <div class="filter-dropdown-row">
                 <div class="filter-group">
-                  <div class="filter-label">Collection</div>
+                  <label class="filter-label" for="filter-collection">Collection</label>
                   <div class="filter-select">
                     <select id="filter-collection">
                       <option value="all">All collections</option>
@@ -1403,7 +1403,7 @@
                   </div>
                 </div>
                 <div class="filter-group">
-                  <div class="filter-label">Scent family</div>
+                  <label class="filter-label" for="filter-family">Scent family</label>
                   <div class="filter-select">
                     <select id="filter-family">
                       <option value="all">All scent families</option>
@@ -1415,7 +1415,7 @@
                   </div>
                 </div>
                 <div class="filter-group">
-                  <div class="filter-label">Price</div>
+                  <label class="filter-label" for="filter-price">Price</label>
                   <div class="filter-select">
                     <select id="filter-price">
                       <option value="all">All prices</option>
