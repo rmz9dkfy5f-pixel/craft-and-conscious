@@ -1431,7 +1431,7 @@
                 <div class="mood-group-heading">
                   What are you in the mood for?
                 </div>
-                <div class="mood-buttons" aria-label="Mood-based quick filters">
+                <div class="mood-buttons" role="group" aria-label="Mood-based quick filters">
                   <button class="mood-btn"
                           data-collection="core"
                           data-family="cozy"
@@ -2045,6 +2045,7 @@
     const cartSubtotalEl = document.querySelector("[data-cart-subtotal]");
     const cartCountEl = document.querySelector("[data-cart-count]");
     const cartAddButtons = document.querySelectorAll("[data-add-to-cart]");
+    const pageWrapper = document.querySelector(".page");
 
     const cartState = {
       items: [],
@@ -2149,6 +2150,7 @@
       cartOpenTrigger = trigger || document.activeElement;
       cartBackdrop.classList.add("is-visible");
       cartBackdrop.removeAttribute("aria-hidden");
+      if (pageWrapper) pageWrapper.setAttribute("inert", "");
       document.addEventListener("keydown", trapCartFocus);
       const focusable = getCartFocusable();
       if (focusable.length > 0) focusable[0].focus();
@@ -2158,6 +2160,7 @@
       if (!cartBackdrop) return;
       cartBackdrop.classList.remove("is-visible");
       cartBackdrop.setAttribute("aria-hidden", "true");
+      if (pageWrapper) pageWrapper.removeAttribute("inert");
       document.removeEventListener("keydown", trapCartFocus);
       if (cartOpenTrigger && typeof cartOpenTrigger.focus === "function") {
         cartOpenTrigger.focus();
