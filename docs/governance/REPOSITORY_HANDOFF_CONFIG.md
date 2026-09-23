@@ -83,8 +83,37 @@ stop and ask before picking a destination — do not guess or infer a path patte
 
 ## Deployment Contract
 
-N/A — no deployment target. Classification is `git_backed_with_remote`, not `git_backed_with_deployment`;
-no deploy host, CI, or release pipeline exists for this repo as of 2026-09-08.
+*(Updated 2026-09-23 — `main`'s own deployment discovered; see below. `design/olive-atelier`'s
+entry, added earlier the same day, is unchanged.)*
+
+**`main` — discovered 2026-09-23, not set up by any session in this repo's own history.** A
+read-only check (`curl`/DNS, no SSH) found `craftandconscious.com` and `www.craftandconscious.com`
+resolving to `74.208.9.49` (the same IONOS VPS as `Hair-by-Alexy` and `design/olive-atelier`) and
+serving HTTP 200 from `nginx`. **This deployment predates this repo's Git history** —
+`Last-Modified: Wed, 26 Nov 2025 10:18:17 GMT`, before the repo's initial commit (2026-09-08) — and
+was never wired into any governance record; every prior session's "no deployment target" statement
+was carried forward unverified rather than actually checked (see `PROJECT_CLASSIFICATION.md`'s
+matching correction). **The deployed content is stale**: confirmed missing `role="group"` on
+`.mood-buttons`, the `.hero-card`/`aria-hidden` fix, and all cart-dialog/mobile-nav work — i.e. it
+predates every accessibility fix shipped in this repo since 2026-09-17. No `RELEASE.txt` or any
+other release marker exists for it. **Deploy mechanism, deployment root, and who/what manages this
+file are all unknown** — nothing beyond the `curl`/DNS check above has been verified; the owner
+chose to document this finding now rather than investigate further this session (SSH inspection of
+the VPS's nginx config/deploy root for this domain is the natural next step, not yet done). Do not
+assume a mechanism or root path — confirm before any future deploy targets this domain.
+
+### Deploy Targets
+
+| Target name | Scope/trigger | Deployment root | Deploy mechanism | Release marker |
+|---|---|---|---|---|
+| main (production) | branch `main`, apex domain | **unknown — not yet investigated** | **unknown — not yet investigated; content is a static file predating this repo, mechanism unconfirmed** | none exists |
+| olive-atelier | branch `design/olive-atelier` | `/var/www/craft-and-conscious-olive-atelier/` on the IONOS VPS (`74.208.9.49`, see `10_INFRASTRUCTURE/Homelab/Ionis_VPS_Reference.md`) | Manual: `scp` the built `v10/index.html` + `v10/images/` to the deployment root over SSH (`~/.ssh/ionis_vps`); no CI/automation exists yet | `https://olive-atelier.craftandconscious.com/RELEASE.txt` |
+
+Nginx vhost for `olive-atelier`: `/etc/nginx/sites-available/olive-atelier.craftandconscious.com`
+(HTTPS via Let's Encrypt, `certbot --nginx --redirect`, cert expires 2026-12-22, auto-renews). No
+build step — the deploy mechanism is a direct file copy, matching this repo's own no-build-tooling
+convention. **No equivalent vhost/deploy-config location is yet confirmed for the `main` row
+above** — do not guess one.
 
 ## Safety Boundaries
 

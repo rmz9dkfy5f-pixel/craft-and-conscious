@@ -22,6 +22,64 @@
 - security
 - perf
 
+## 2026-09-23 — fix: wire up mobile nav toggle; docs: record stale untracked prod deployment
+
+## Summary
+
+- Fixed the owner-confirmed next task (mobile/touch-viewport accessibility): the mobile nav toggle
+  had zero JavaScript wiring, making primary navigation and the cart completely unreachable below
+  768px. Also documents a major discovery: `main` has a real, stale, untracked production
+  deployment at `craftandconscious.com`. Also includes the 2026-09-22 governance backfill that was
+  written but never actually committed in that session (staged `v9/index.html` only, not these two
+  files).
+
+## Description
+
+- What changed: `v9/index.html` — wired `.nav-toggle` as a disclosure widget (`aria-expanded`/
+  `aria-controls`, opens on tap, closes on nav-link click or `Escape` with focus return), added the
+  mobile dropdown-panel CSS, hid the redundant `.nav-links-desktop-only` button in the mobile menu.
+  `docs/governance/{PROJECT_CLASSIFICATION,REPOSITORY_HANDOFF_CONFIG}.md` — pulled in
+  `design/olive-atelier`'s branch-scoped deploy-target note, then corrected `main`'s own
+  classification from `git_backed_with_remote` to `git_backed_with_deployment` after discovering
+  its real (stale, untracked) production deployment; added a Deploy Targets table row for it.
+  `docs/operations/{ACCESSIBILITY_POLICY,BROWSER_MATRIX_POLICY}.md` — recorded the mobile pass and
+  corrected the hamburger-toggle claim from asserted-but-untested to live-verified.
+  `docs/project/{STATUS,COMMIT_NOTES,DECISION_LOG}.md` — backfilled with all of the above, plus the
+  2026-09-22 work that was never committed.
+- Why: owner-confirmed next task from the 2026-09-22 closeout; the deployment discovery surfaced
+  during that work and the owner chose to document it now rather than fold investigation/redeploy
+  into this same session.
+- Validation: live headless-Chromium (Playwright, scratch-directory-only dependency) — nav toggle
+  opens/closes correctly via tap, nav-link click, and `Escape` (with focus return); cart reachable
+  on mobile with `inert`/focus-trap behavior intact; axe-core 4.13.0 (WCAG 2.2 AA) 0 violations
+  across 3 new mobile states (initial-load, nav-open, cart-open); all 3 documented breakpoints
+  behave as specified; `.cart-line-qty-btn` (22×22) confirmed to qualify for the WCAG 2.2 SC 2.5.8
+  spacing exception (45px center-to-center) rather than resized. Deployment discovery verified via
+  read-only `curl`/DNS only (`HTTP 200`, `Last-Modified: 2025-11-26`, resolves to the known IONOS
+  VPS) — no SSH, no deploy action taken.
+- Risks: none from the code change. The stale production deployment itself is a pre-existing risk
+  (real visitors have been getting unfixed accessibility bugs) that this commit documents but does
+  not resolve — see `docs/project/DECISION_LOG.md`'s 2026-09-23 entry for why that was deferred.
+
+## 2026-09-22 — fix: mark .mood-buttons as a group and inert the page behind the open cart dialog
+
+## Summary
+
+- Fixed the 2 remaining axe-noted items from the 2026-09-18 scan.
+
+## Description
+
+- What changed: `v9/index.html` — added `role="group"` to `.mood-buttons`; added a `pageWrapper`
+  reference and toggled the native `inert` attribute on `.page` from `openCart()`/`closeCart()`.
+- Why: owner-confirmed next task from the 2026-09-18 closeout.
+- Validation: live headless-Chromium (Playwright, scratch-directory-only dependency) check —
+  `.mood-buttons` reports `role="group"`; opening the cart applies `inert` to `.page`, blocks a
+  background nav-link click, and confirms the background element sits inside an inert subtree;
+  closing the cart removes `inert`. axe-core 4.13.0 (WCAG 2.2 AA tags) re-scan: 0 violations in
+  both initial-load and cart-open states. `git status` confirmed only `v9/index.html` changed.
+- Risks: none identified. `inert` is native, no dependency added, supported by all evergreen
+  browsers within this repo's last-2-versions/no-IE11 browser matrix.
+
 ## 2026-09-08 — chore: adopt AntBrainOS Project Starter Kit v3.10.0
 
 ## Summary

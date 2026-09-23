@@ -24,14 +24,32 @@ token.
 
 ## This Project
 
-- **Classification:** git_backed_with_remote
-- **Confirmed by:** `starter_kit.py inspect` deterministic repository inspection
-- **Confirmed on:** See `.starter-kit/manifest.json` `installed_at`
-- **Evidence:** See `.starter-kit/project-profile.json` facts and `.starter-kit/manifest.json`
-  `project_classification`.
+- **Classification:** git_backed_with_deployment
+- **Confirmed by:** manual discovery, 2026-09-23 — a read-only `curl`/DNS check found
+  `craftandconscious.com`/`www.craftandconscious.com` resolving to `74.208.9.49` (the same IONOS
+  VPS documented for `Hair-by-Alexy` and `design/olive-atelier`) and serving HTTP 200 from `nginx`.
+  **This corrects a stale classification that every session since 2026-09-08 carried forward
+  unverified** — `.starter-kit/manifest.json`'s `project_classification` and
+  `.starter-kit/project-profile.json` still say `git_backed_with_remote`/no deployment and have
+  not yet been re-run through `starter_kit.py inspect` to reflect this; do that before trusting
+  those two files' deployment-related fields again.
+- **Confirmed on:** 2026-09-23
+- **Evidence:** `curl -I https://craftandconscious.com/` → `HTTP/1.1 200 OK`, `Server: nginx`,
+  `Last-Modified: Wed, 26 Nov 2025 10:18:17 GMT`. DNS resolves to `74.208.9.49`. See
+  `docs/governance/REPOSITORY_HANDOFF_CONFIG.md`'s Deployment Contract for the full finding — the
+  served content is stale (predates this repo's entire Git history, and is missing every
+  accessibility fix shipped since 2026-09-17) and has no `RELEASE.txt` or any other tracked
+  release marker.
 
 Never infer a classification from assumption or convenience. If unconfirmed, leave every field
-above as unknown in `.starter-kit/project-profile.json` rather than guessing.
+above as unknown in `.starter-kit/project-profile.json` rather than guessing. (This entry itself
+is exactly the failure mode that rule exists to prevent — the classification stood as
+`git_backed_with_remote` for over two weeks and eleven sessions before anyone actually checked.)
+
+**Branch-scoped note (2026-09-23, from the `design/olive-atelier` branch, still accurate):**
+`design/olive-atelier` has its own, separate, independent deploy target
+(`docs/governance/REPOSITORY_HANDOFF_CONFIG.md`'s Deploy Targets table) — distinct from `main`'s
+own now-confirmed deployment discovered the same day. Both are real; neither implies the other.
 
 ## What Each Classification Implies
 

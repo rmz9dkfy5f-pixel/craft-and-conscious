@@ -17,7 +17,13 @@ tooling it already uses or chooses to adopt.
   - Tablet: 768px–960px — condensed grids (3-column product grid, 2-column collections/journal),
     hero switches to a single stacked column.
   - Mobile: < 768px, with a further breakpoint at 520px — top nav collapses to a hamburger toggle
-    at 768px; product grid drops to 2 columns at 768px and 1 column at 520px.
+    at 768px; product grid drops to 2 columns at 768px and 1 column at 520px. **Live-verified
+    2026-09-22** (previously an asserted-but-untested claim, per this doc's own prior Verification
+    practice note below — corrected per this repo's standing rule to verify accessibility/behavior
+    claims live rather than assume them): the toggle itself had no JavaScript wiring until
+    2026-09-22 and was completely non-functional (nav and cart both unreachable below 768px); now
+    fixed and confirmed live via touch interaction and DOM state checks at 390×664 (iPhone 13
+    emulation) and at the documented 768/520px breakpoints.
 - **Operating systems:** none verified separately from the browser matrix above — no OS-specific
   feature is used; coverage follows whichever OS each listed evergreen browser runs on (Windows,
   macOS, iOS, Android).
