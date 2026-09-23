@@ -3,32 +3,39 @@
 ## Current State
 
 Static website, 8 versioned iterations (`v1`-`v6`, `v8`, `v9`; no `v7`), each a standalone
-`index.html`; `v9` (current) also has `images/`. No build system, no backend, no CI, no confirmed
+`index.html`; `v9` also has `images/`. No build system, no backend, no CI. `main` has no confirmed
 deployment target. AntBrainOS Project Starter Kit v3.10.0 (`web_application` profile) adopted and
 merged into `main` (2026-09-09). 10 optional governance modules are enabled (since 2026-09-16):
 `threat_model`, `security_requirements`, `dependency_risk`, `secret_scan`, `license_policy`,
 `browser_matrix`, `accessibility`, `web_performance`, `seo`, `release_metadata`. As of 2026-09-17,
-all 10 modules' policy docs hold real project-specific content (previously kit-template
-boilerplate): accessibility target WCAG 2.2 AA, browser support last-2-versions evergreen (no IE11),
-zero third-party dependencies/secrets confirmed, all imagery/code confirmed original/business-owned.
-The Snapshot Contract for `DESKTOP-8JF1MKA` is fully resolved and its `Primary\` clone kept in sync.
+all 10 modules' policy docs hold real project-specific content: accessibility target WCAG 2.2 AA,
+browser support last-2-versions evergreen (no IE11), zero third-party dependencies/secrets
+confirmed, all imagery/code confirmed original/business-owned. The Snapshot Contract for
+`DESKTOP-8JF1MKA` is fully resolved and its `Primary\` clone kept in sync with `main`.
+
+**New as of this branch (`design/olive-atelier`, off `main` @ `900a481`):** a tenth site version,
+`v10/`, is a from-scratch design-exploration mockup (distinct visual direction from `v1`-`v9`) built
+against a supplied reference screenshot per this vault's
+`claude-code-visual-mockup-website-execution-plan.md` two-phase workflow (Phase 1 plan approved,
+Phase 2 implemented). This is the same "unmerged, long-lived showcase branch on its own VPS
+subdomain" pattern already established by the `Hair-by-Alexy` repo's three `design/*` branches —
+matching that precedent, `v1`-`v9` are untouched and this branch is not intended to merge into
+`main`.
 
 ## Last Updated
 
-2026-09-18 — ran an automated axe-core 4.13.0 scan (WCAG 2.2 AA tags) against `v9/index.html` in
-both its initial-load and cart-open states, following up on the 2026-09-17 manual pass. Found and
-fixed 3 real Tier 1 issues the manual pass hadn't covered: the 3 filter `<select>` elements had no
-accessible name (converted their `.filter-label` divs to `<label for="...">`); `.hero-card` was
-`aria-hidden="true"` while containing a real, functional "Add to cart" button (removed the
-`aria-hidden`, confirmed not required by the shared `.reveal` animation class); and `.eyebrow`/
-`.journal-tag` text failed AA contrast with their own separate colors, distinct from the `--muted`
-token fixed 2026-09-17 (reassigned to existing `--ink-soft`/`--muted` tokens respectively, verified
-per actual rendered background context — `.eyebrow` needed `--ink-soft` specifically since one of
-its two usage contexts renders against the hero gradient, not a guaranteed-white card, where
-`--muted` alone would still have failed). Re-scan after the fixes: 0 violations in both states (was
-3/2). This push will be tagged `v0.1.1` (applied in the session-end super prompt's Section 7) — the
-first tagged release since `v0.1.0` and the first to mark an actual site-content change rather than
-governance-only work.
+2026-09-22/23 — built `v10/index.html` (self-contained, inline CSS, no build step — matching this
+repo's per-version convention) plus `v10/images/` (14 real photos, Pexels-sourced, `CREDITS.md`
+logs each source URL) on new branch `design/olive-atelier`. Live-verified via headless Chromium:
+no console errors, no broken images/requests, no horizontal scroll at mobile width, demo
+cart/wishlist/mobile-nav all functional, `inert` correctly applied to the page behind the open cart
+dialog (same pattern as `v9`'s own 2026-09-22 fix). Deployed live to
+`https://olive-atelier.craftandconscious.com` on the existing IONOS VPS (owner set DNS; this
+session added the Nginx vhost, issued a Let's Encrypt cert via `certbot --nginx --redirect`, copied
+`v10/` to `/var/www/craft-and-conscious-olive-atelier`, and wrote `RELEASE.txt`) — owner-authorized
+this session. No git tag for this push, matching the `Hair-by-Alexy design/*` precedent (design
+branches don't receive a version tag) and this repo's own standing rule that tags mark real
+`main`-branch site releases only.
 
 2026-09-17 (later same day) — ran a live headless-Chromium (Playwright) audit of `v9/index.html`
 against the WCAG 2.2 AA target and fixed what it found: `--muted` text and `.btn-primary` text
@@ -74,11 +81,14 @@ rather than reading the CSS.
 
 ## Next Actions
 
-- Optional: test mobile/touch-viewport accessibility (still untested).
-- Optional: address the remaining axe-core "needs manual review" items (a `.mood-buttons`
-  `aria-label`-on-`div` technicality, and the cart dialog's background not being marked `inert`
-  while open — a real gap axe cannot detect, named in the 2026-09-17 scan report).
-- Owner: decide whether/when to establish a deployment target — several module docs are blocked on
-  this.
+- Owner: pick specific candle product photography for `v10` (current photos are stock/placeholder,
+  logged in `v10/images/CREDITS.md`).
+- Optional: test mobile/touch-viewport accessibility on `main`'s `v9` (still untested).
+- Owner: decide whether/when to establish a deployment target for `main` itself — several module
+  docs are blocked on this; unrelated to `design/olive-atelier`'s own new deploy target.
 - Optional: fill in or explicitly retire the stale `MIGRATION_REPORT.md` template.
 - Optional: delete the now-redundant, fully-merged `starter-kit-v3.10-migration` branch.
+- Optional: add a `### Deploy Targets` row for `olive-atelier.craftandconscious.com` to
+  `docs/governance/REPOSITORY_HANDOFF_CONFIG.md`'s Deployment Contract so `REPO_VPS_DEPLOY.md` can
+  resolve it automatically on a future redeploy (deployed manually this session; not yet formalized
+  in that table).

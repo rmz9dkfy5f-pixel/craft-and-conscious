@@ -184,6 +184,39 @@
   for broader coverage, and mobile/touch-viewport testing — both recorded as open next-task
   candidates rather than silently skipped.
 
+## 2026-09-22/23 — feat: add v10 design-exploration mockup, deploy to olive-atelier.craftandconscious.com
+
+## Summary
+
+- New branch `design/olive-atelier` (off `main` @ `900a481`): a from-scratch `v10/index.html` +
+  `v10/images/` implementing a distinct visual design direction from a supplied reference
+  screenshot, per `claude-code-visual-mockup-website-execution-plan.md`'s Phase 1/Phase 2 workflow.
+  Deployed live to `https://olive-atelier.craftandconscious.com`.
+
+## Description
+
+- What changed: added `v10/index.html` (self-contained, inline CSS, matching this repo's
+  per-version convention — no build step, no dependency except one Google Fonts `<link>`,
+  owner-approved as this branch's one deviation from `v9`'s zero-external-request precedent) and
+  `v10/images/` (14 real JPEGs sourced from Pexels — no attribution required — plus `CREDITS.md`
+  logging each source URL). `v1`-`v9`/`images/` untouched. On the IONOS VPS: new Nginx vhost
+  `/etc/nginx/sites-available/olive-atelier.craftandconscious.com`, TLS cert via
+  `certbot --nginx --redirect`, files copied to `/var/www/craft-and-conscious-olive-atelier/`, and
+  a `RELEASE.txt` release marker.
+- Why: owner requested a completely new, unrelated design direction on its own branch, explicitly
+  intended to be kept long-term (not merged) — matching the `Hair-by-Alexy` repo's established
+  `design/*`-branch-on-dedicated-VPS-subdomain pattern. Owner created the DNS record
+  (`olive-atelier.craftandconscious.com` → `74.208.9.49`) and explicitly authorized the VPS setup.
+- Validation: live-verified via headless Chromium (Playwright, scratch-directory-only dependency):
+  0 console errors, 0 failed requests, 0 broken images, no horizontal scroll at 390px width,
+  demo add-to-cart/wishlist-toggle/mobile-nav all functional, cart dialog correctly applies `inert`
+  to the page behind it (real pointer click on a background nav link blocked, confirmed inside the
+  `[inert]` subtree) and removes it on close/Escape. Post-deploy: `curl` confirmed HTTPS 200, HTTP→
+  HTTPS 301 redirect, `RELEASE.txt` reachable, a sampled image reachable.
+- Risks: none identified. Imagery is stock/placeholder (Pexels), not real product photography —
+  owner-acknowledged, tracked in `v10/images/CREDITS.md` and `STATUS.md` Next Actions. No git tag
+  applied to this push, matching the `design/*`-branch precedent (see `DECISION_LOG.md`).
+
 ## 2026-09-18 — fix: 3 Tier 1 issues found by automated axe-core scan
 
 ## Summary

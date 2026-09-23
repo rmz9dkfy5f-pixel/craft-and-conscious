@@ -13,6 +13,19 @@ Use this file for durable project context that agents need across sessions.
   from `03_PROJECTS/Active/Craft_and_Conscious/`, which tracks an unrelated Apple Numbers
   spreadsheet project for the same business.
 
+## Design-Exploration Branches (New Pattern, 2026-09-22)
+
+`design/olive-atelier` is the first branch on this repo following the `Hair-by-Alexy` repo's
+established pattern: a from-scratch, unrelated visual design direction, deliberately kept
+unmerged, deployed live to its own dedicated VPS subdomain
+(`https://olive-atelier.craftandconscious.com`, on the same IONOS VPS that hosts `main`'s
+`craftandconscious.com`). Subdomain naming convention: `<variant-slug>.craftandconscious.com`
+(no repeated business-slug, since `craftandconscious.com` is this business's own apex domain —
+matching `spa.craftandconscious.com`/`promptvault.craftandconscious.com`, not the
+`<business-slug>.<variant-slug>.craftandconscious.com` pattern used for *other* clients' branches
+like `hair-by-alexy.luxe-noir.craftandconscious.com`). Per that same precedent, design-exploration
+branches are pushed **untagged**. See `docs/project/DECISION_LOG.md`'s 2026-09-22/23 entry.
+
 ## Known Constraints
 
 - Governance/Starter-Kit tooling must never modify `v1`-`v9`/`images/` site content.
