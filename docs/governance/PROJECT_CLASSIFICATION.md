@@ -33,6 +33,13 @@ token.
 Never infer a classification from assumption or convenience. If unconfirmed, leave every field
 above as unknown in `.starter-kit/project-profile.json` rather than guessing.
 
+**Branch-scoped note (2026-09-23):** `main` itself still has no deployment target, so this
+project-wide classification is unchanged. Branch `design/olive-atelier` does have a real,
+independent deploy target as of 2026-09-22/23 (`docs/governance/REPOSITORY_HANDOFF_CONFIG.md`'s
+new Deploy Targets table) — not reflected by this single repo-wide field, since the kit's own
+classification schema has no branch granularity. Re-classify the whole project only if/when `main`
+itself gains a deployment target.
+
 ## What Each Classification Implies
 
 | Classification | `REPOSITORY_HANDOFF_CONFIG.md` sections that apply |

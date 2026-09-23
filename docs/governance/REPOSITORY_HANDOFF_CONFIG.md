@@ -83,8 +83,21 @@ stop and ask before picking a destination — do not guess or infer a path patte
 
 ## Deployment Contract
 
-N/A — no deployment target. Classification is `git_backed_with_remote`, not `git_backed_with_deployment`;
-no deploy host, CI, or release pipeline exists for this repo as of 2026-09-08.
+*(Updated 2026-09-23 — first real deploy target, on a non-`main` branch.)* `main` itself still has
+no deployment target. `design/olive-atelier` does, as of 2026-09-22/23 — a design-exploration
+branch deployed live per the same pattern established in the `Hair-by-Alexy` repo (`design/*`
+branches, each on its own dedicated VPS subdomain, kept unmerged long-term). See
+`docs/project/DECISION_LOG.md`'s 2026-09-22/23 entry for the full reasoning.
+
+### Deploy Targets
+
+| Target name | Scope/trigger | Deployment root | Deploy mechanism | Release marker |
+|---|---|---|---|---|
+| olive-atelier | branch `design/olive-atelier` | `/var/www/craft-and-conscious-olive-atelier/` on the IONOS VPS (`74.208.9.49`, see `10_INFRASTRUCTURE/Homelab/Ionis_VPS_Reference.md`) | Manual: `scp` the built `v10/index.html` + `v10/images/` to the deployment root over SSH (`~/.ssh/ionis_vps`); no CI/automation exists yet | `https://olive-atelier.craftandconscious.com/RELEASE.txt` |
+
+Nginx vhost: `/etc/nginx/sites-available/olive-atelier.craftandconscious.com` (HTTPS via Let's
+Encrypt, `certbot --nginx --redirect`, cert expires 2026-12-22, auto-renews). No build step — the
+deploy mechanism is a direct file copy, matching this repo's own no-build-tooling convention.
 
 ## Safety Boundaries
 

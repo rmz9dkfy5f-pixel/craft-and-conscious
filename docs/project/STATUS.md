@@ -35,7 +35,10 @@ session added the Nginx vhost, issued a Let's Encrypt cert via `certbot --nginx 
 `v10/` to `/var/www/craft-and-conscious-olive-atelier`, and wrote `RELEASE.txt`) — owner-authorized
 this session. No git tag for this push, matching the `Hair-by-Alexy design/*` precedent (design
 branches don't receive a version tag) and this repo's own standing rule that tags mark real
-`main`-branch site releases only.
+`main`-branch site releases only. **Confirmed final deployed commit: `f88ec2909560136a822354458d59660d6df76573`**
+(`design/olive-atelier`) — `RELEASE.txt` re-verified against this exact commit after the push
+(build-input SHA-256 of `v10/index.html` matches local and deployed byte-for-byte), superseding an
+earlier same-session deploy of the pre-commit working tree.
 
 2026-09-17 (later same day) — ran a live headless-Chromium (Playwright) audit of `v9/index.html`
 against the WCAG 2.2 AA target and fixed what it found: `--muted` text and `.btn-primary` text
