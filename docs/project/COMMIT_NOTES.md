@@ -22,6 +22,23 @@
 - security
 - perf
 
+## 2026-10-01 — docs: mark v0.1.2 release
+
+## Summary
+
+- No new code change. Marks the accumulated real site-content work since `v0.1.1` as a release:
+  the 2026-09-22 `.mood-buttons`/cart-`inert` fixes and the 2026-09-23 mobile nav-toggle fix.
+
+## Description
+
+- What changed: `docs/project/{STATUS,COMMIT_NOTES,DECISION_LOG}.md` — forward-looking note that
+  this push is tagged `v0.1.2`, applied in the session-end super prompt's Section 7.
+- Why: owner decided 2026-10-01 to cut a release tag for work already shipped and verified across
+  the two prior sessions, rather than leave it untagged indefinitely.
+- Validation: n/a — documentation-only commit; the underlying site code was already live-verified
+  in the sessions that shipped it (see the `v0.1.2` tag's own commit, `ae73f01`, and its ancestry).
+- Risks: none. No deploy authorized or performed as part of this tag.
+
 ## 2026-09-23 — fix: wire up mobile nav toggle; docs: record stale untracked prod deployment
 
 ## Summary

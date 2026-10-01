@@ -19,6 +19,13 @@ The Snapshot Contract for `DESKTOP-8JF1MKA` is fully resolved and its `Primary\`
 
 ## Last Updated
 
+2026-10-01 — no new code changes since the 2026-09-23 closeout (`main` unchanged at `ae73f01`,
+working tree clean, `origin/main` unmoved). Owner decided to mark the accumulated real
+site-content work since `v0.1.1` (2026-09-22's `role="group"`/cart-`inert` fixes, 2026-09-23's
+mobile nav-toggle fix) as a release. **This push will be tagged `v0.1.2`, applied in Section 7 of
+the session-end super prompt.** No deploy authorized this session — the known stale
+`craftandconscious.com` production deployment (see Broken/Unknown below) is unaffected by this tag.
+
 2026-09-23 — **discovered an untracked, stale production deployment.** `craftandconscious.com`/
 `www.craftandconscious.com` resolve to `74.208.9.49` (the same IONOS VPS as `Hair-by-Alexy`/
 `design/olive-atelier`) and serve HTTP 200 from `nginx`, with `Last-Modified: Wed, 26 Nov 2025` —
